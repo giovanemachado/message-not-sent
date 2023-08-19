@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="project-b"
+run/main_scene="res://src/scenes/menu_scene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,3 +19,4 @@ config/icon="res://icon.svg"
 
 Globals="*res://src/utils/scripts/Globals.gd"
 SignalBus="*res://src/utils/scripts/SignalBus.gd"
+SceneLoader="*res://src/utils/scenes/scene_loader.tscn"

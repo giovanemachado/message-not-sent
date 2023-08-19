@@ -1,14 +1,13 @@
 extends Node
 
-const GROUPS = {
-	ENEMY = 'enemy',
-	PLAYER = 'player',
-	FRIEND = 'friend',
-	COLLECTABLE = 'collectable'
+const SCENES = {
+	GAME = 'gameplay_scene',
+	CREDITS = 'credits_scene',
+	TUTORIAL = 'tutorial_scene',
 }
 
-const ITEM_NAMES = {
-	FOOD = 'food'
+const GROUPS = {
+	PLAYER = 'player',
 }
 
 #enum ExampleEnum {A, B}
