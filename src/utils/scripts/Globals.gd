@@ -1,13 +1,17 @@
 extends Node
 
 const SCENES = {
-	GAME = 'gameplay_scene',
 	CREDITS = 'credits_scene',
 	TUTORIAL = 'tutorial_scene',
+	EMERGE = 'emerge_scene',
+	SUBMERGE = 'submerge_scene',
+	DEATH= 'death_scene',
 }
 
-const GROUPS = {
-	PLAYER = 'player',
+const CHARACTERS = {
+	MAN = 'man',
+	DAUGHTER = 'daughter',
+	BOSS = 'boss',
 }
 
 #enum ExampleEnum {A, B}

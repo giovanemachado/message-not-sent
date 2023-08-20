@@ -1,0 +1,225 @@
+[gd_scene load_steps=11 format=3 uid="uid://ci7bq8dim3vtv"]
+
+[ext_resource type="Texture2D" uid="uid://bgyhkbtrs4xwp" path="res://src/utils/assets/all_sizes.png" id="1_0kcuj"]
+[ext_resource type="Texture2D" uid="uid://em16460w5pdb" path="res://src/utils/assets/100x100.png" id="2_g5j0h"]
+[ext_resource type="Script" path="res://src/emerge/EmergeGameplay.gd" id="2_glhhq"]
+[ext_resource type="Script" path="res://src/emerge/MessagesTracking.gd" id="3_86nip"]
+[ext_resource type="PackedScene" uid="uid://ndegxk7e1wfy" path="res://src/emerge/messages/message_box_scene.tscn" id="5_c67yt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cokg"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="Theme" id="Theme_24380"]
+
+[sub_resource type="Animation" id="Animation_xy0gt"]
+resource_name = "typing"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WriteLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1.31951),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_6jww7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WriteLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iuhdm"]
+_data = {
+"RESET": SubResource("Animation_6jww7"),
+"typing": SubResource("Animation_xy0gt")
+}
+
+[node name="Emerge" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment"]
+position = Vector2(1920, -432)
+texture = ExtResource("1_0kcuj")
+metadata/_edit_lock_ = true
+
+[node name="Gameplay" type="Node2D" parent="."]
+script = ExtResource("2_glhhq")
+
+[node name="MessagesTracking" type="Node2D" parent="Gameplay"]
+script = ExtResource("3_86nip")
+
+[node name="Phone" type="Node2D" parent="Gameplay"]
+position = Vector2(606, 337)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone"]
+modulate = Color(0.109804, 0.109804, 0.109804, 1)
+scale = Vector2(4.075, 6.245)
+texture = ExtResource("2_g5j0h")
+
+[node name="Contacts" type="Node2D" parent="Gameplay/Phone"]
+visible = false
+
+[node name="Contact1" type="Node2D" parent="Gameplay/Phone/Contacts"]
+position = Vector2(1, -269)
+
+[node name="ContactSprite2D" type="Sprite2D" parent="Gameplay/Phone/Contacts/Contact1"]
+modulate = Color(0.223529, 0.403922, 0.52549, 1)
+position = Vector2(1.00005, 40.5)
+scale = Vector2(3.6, 0.43)
+texture = ExtResource("2_g5j0h")
+
+[node name="Contact1Button" type="Button" parent="Gameplay/Phone/Contacts/Contact1"]
+offset_left = -179.0
+offset_top = 18.0
+offset_right = 181.0
+offset_bottom = 63.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Contact2" type="Node2D" parent="Gameplay/Phone/Contacts"]
+position = Vector2(1, -204)
+
+[node name="ContactSprite2D" type="Sprite2D" parent="Gameplay/Phone/Contacts/Contact2"]
+modulate = Color(0.223529, 0.403922, 0.52549, 1)
+position = Vector2(1.00005, 40.5)
+scale = Vector2(3.6, 0.43)
+texture = ExtResource("2_g5j0h")
+
+[node name="Contact2Button" type="Button" parent="Gameplay/Phone/Contacts/Contact2"]
+offset_left = -179.0
+offset_top = 18.0
+offset_right = 181.0
+offset_bottom = 63.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
+
+[node name="Message" type="Node2D" parent="Gameplay/Phone"]
+
+[node name="MarginContainer" type="MarginContainer" parent="Gameplay/Phone/Message"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -606.0
+offset_top = -337.0
+offset_right = 523.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 425
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 370
+theme_override_constants/margin_bottom = 100
+
+[node name="ColorRect" type="ColorRect" parent="Gameplay/Phone/Message/MarginContainer"]
+layout_mode = 2
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Gameplay/Phone/Message/MarginContainer"]
+layout_mode = 2
+
+[node name="MessageBox" parent="Gameplay/Phone/Message/MarginContainer/VBoxContainer" instance=ExtResource("5_c67yt")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Gameplay/Phone/Message/MarginContainer/VBoxContainer/MessageBox"]
+layout_mode = 2
+text = "where are you?"
+
+[node name="MessageBox2" parent="Gameplay/Phone/Message/MarginContainer/VBoxContainer" instance=ExtResource("5_c67yt")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Gameplay/Phone/Message/MarginContainer/VBoxContainer/MessageBox2"]
+layout_mode = 2
+text = "wanna know, nvm, you can forget me."
+
+[node name="ContactsButtonSprite2D" type="Sprite2D" parent="Gameplay/Phone/Message"]
+modulate = Color(0.156863, 0.435294, 0.392157, 1)
+position = Vector2(-154.5, -281.5)
+scale = Vector2(0.73, 0.43)
+texture = ExtResource("2_g5j0h")
+
+[node name="ContactsButton" type="Button" parent="Gameplay/Phone/Message"]
+offset_left = -191.0
+offset_top = -304.0
+offset_right = -118.0
+offset_bottom = -259.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
+
+[node name="SendButtonSprite2D" type="Sprite2D" parent="Gameplay/Phone/Message"]
+modulate = Color(0.156863, 0.447059, 0.27451, 1)
+position = Vector2(154.5, 266.5)
+scale = Vector2(0.73, 0.43)
+texture = ExtResource("2_g5j0h")
+
+[node name="SendButton" type="Button" parent="Gameplay/Phone/Message"]
+offset_left = 118.0
+offset_top = 244.0
+offset_right = 191.0
+offset_bottom = 289.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
+
+[node name="WriteButtonSprite2D" type="Sprite2D" parent="Gameplay/Phone/Message"]
+modulate = Color(0.639216, 0.639216, 0.639216, 1)
+position = Vector2(-42.5, 266)
+scale = Vector2(2.77, 0.42)
+texture = ExtResource("2_g5j0h")
+
+[node name="WriteButton" type="Button" parent="Gameplay/Phone/Message"]
+offset_left = -182.0
+offset_top = 248.0
+offset_right = 95.0
+offset_bottom = 285.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
+
+[node name="WriteLabel" type="Label" parent="Gameplay/Phone/Message"]
+offset_left = -181.0
+offset_top = 245.0
+offset_right = 96.0
+offset_bottom = 287.0
+theme = SubResource("Theme_24380")
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_font_sizes/font_size = 12
+text = "good morning daughter. I'm so sorry for abandon you and"
+autowrap_mode = 2
+clip_text = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gameplay/Phone/Message"]
+libraries = {
+"": SubResource("AnimationLibrary_iuhdm")
+}
+
+[node name="Commands" type="Node2D" parent="Gameplay"]
+position = Vector2(1082, 586)
+
+[node name="SubmergeButtonSprite2D" type="Sprite2D" parent="Gameplay/Commands"]
+modulate = Color(1, 0.45098, 0.45098, 1)
+texture = ExtResource("2_g5j0h")
+
+[node name="SubmergeButton" type="Button" parent="Gameplay/Commands"]
+offset_left = -50.0
+offset_top = -51.0
+offset_right = 50.0
+offset_bottom = 51.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
+
+[connection signal="pressed" from="Gameplay/Phone/Contacts/Contact1/Contact1Button" to="Gameplay" method="_on_contact_1_button_pressed"]
+[connection signal="pressed" from="Gameplay/Phone/Contacts/Contact2/Contact2Button" to="Gameplay" method="_on_contact_2_button_pressed"]
+[connection signal="pressed" from="Gameplay/Phone/Message/ContactsButton" to="Gameplay" method="_on_contacts_button_pressed"]
+[connection signal="pressed" from="Gameplay/Phone/Message/SendButton" to="Gameplay" method="_on_send_button_pressed"]
+[connection signal="pressed" from="Gameplay/Phone/Message/WriteButton" to="Gameplay" method="_on_write_button_pressed"]
+[connection signal="pressed" from="Gameplay/Commands/SubmergeButton" to="Gameplay" method="_on_submerge_button_pressed"]
