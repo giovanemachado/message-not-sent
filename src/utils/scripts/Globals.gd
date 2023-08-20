@@ -5,13 +5,17 @@ const SCENES = {
 	TUTORIAL = 'tutorial_scene',
 	EMERGE = 'emerge_scene',
 	SUBMERGE = 'submerge_scene',
-	DEATH= 'death_scene',
+	DEATH = 'death_scene',
 }
 
 const CHARACTERS = {
 	MAN = 'man',
 	DAUGHTER = 'daughter',
 	BOSS = 'boss',
+}
+
+const GROUPS = {
+	OBSTACLES = 'obstacle'
 }
 
 #enum ExampleEnum {A, B}

@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var contacts_screen = $Phone/Contacts
 @onready var message_screen = $Phone/Message
-@onready var message_container = $Phone/Message/CanvasLayer/MarginContainer/VBoxContainer
+#@onready var message_container = $Phone/Message/CanvasLayer/MarginContainer/VBoxContainer
 @onready var animation_player: AnimationPlayer = $Phone/Message/AnimationPlayer
 @onready var write_label = $Phone/Message/WriteLabel
 @onready var message_tracking = $MessagesTracking
