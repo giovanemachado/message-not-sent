@@ -1,26 +1,27 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy5i5q85piqiv"]
+[gd_scene load_steps=17 format=3 uid="uid://cy5i5q85piqiv"]
 
-[ext_resource type="Texture2D" uid="uid://em16460w5pdb" path="res://src/utils/assets/100x100.png" id="2_afng8"]
-[ext_resource type="Texture2D" uid="uid://cux4tnv2j8l48" path="res://src/art/cave.png" id="2_o8jtj"]
+[ext_resource type="Texture2D" uid="uid://d4mskpemmctm8" path="res://src/art/spike2.png" id="1_2oqxv"]
+[ext_resource type="Texture2D" uid="uid://ew6qiponq6xf" path="res://src/art/spike1.png" id="1_3qwbg"]
+[ext_resource type="Texture2D" uid="uid://bqxwefqc61tik" path="res://src/art/cave4.png" id="1_18erb"]
+[ext_resource type="Texture2D" uid="uid://em16460w5pdb" path="res://src/utils/assets/100x100.png" id="1_l2jh4"]
 [ext_resource type="Script" path="res://src/submerge/submarine/Submarine.gd" id="3_7535w"]
 [ext_resource type="Script" path="res://src/submerge/Commands.gd" id="3_boxii"]
-[ext_resource type="Texture2D" uid="uid://b8iedrhecmwfy" path="res://src/art/cave2.png" id="3_phmcp"]
-[ext_resource type="Texture2D" uid="uid://canjckistfgl4" path="res://src/art/Sprite-0002.png" id="7_hq8n3"]
+[ext_resource type="Texture2D" uid="uid://byucnsy65pjdw" path="res://src/art/sub.png" id="6_3t85j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gsgs"]
-size = Vector2(302.5, 909.5)
+size = Vector2(450, 1226)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no37o"]
-size = Vector2(238, 1347.25)
+size = Vector2(223, 1882.63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4mnv"]
-size = Vector2(404.5, 1168)
+size = Vector2(197.5, 309.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi4o1"]
-size = Vector2(307.5, 1199)
+size = Vector2(259.25, 2043)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_revif"]
-size = Vector2(278, 2310)
+size = Vector2(255, 2211)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cahd7"]
 size = Vector2(291.5, 2382)
@@ -28,7 +29,27 @@ size = Vector2(291.5, 2382)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h80q1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bj2t"]
-radius = 59.6657
+radius = 127.016
+
+[sub_resource type="Environment" id="Environment_u6g6f"]
+background_mode = 3
+tonemap_exposure = 0.85
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 1.61
+sdfgi_min_cell_size = 12.5437
+sdfgi_cascade0_distance = 802.8
+sdfgi_max_distance = 12844.8
+sdfgi_y_scale = 2
+sdfgi_energy = 13.16
+sdfgi_normal_bias = 2.675
+fog_light_color = Color(0.0901961, 0.117647, 0.160784, 1)
+fog_light_energy = 3.51
+fog_sky_affect = 0.309
+fog_height = -729.13
+fog_height_density = -0.035
+adjustment_enabled = true
+adjustment_brightness = 0.87
+adjustment_contrast = 0.83
 
 [node name="Submerge" type="Node2D"]
 
@@ -36,120 +57,142 @@ radius = 59.6657
 
 [node name="Obstacles" type="Node2D" parent="Environment"]
 
-[node name="Node2D" type="Node2D" parent="Environment/Obstacles"]
+[node name="Areas" type="Node2D" parent="Environment/Obstacles"]
 position = Vector2(494, 161)
 scale = Vector2(2, 2)
 
-[node name="Sprite-0002" type="Sprite2D" parent="Environment/Obstacles/Node2D"]
-position = Vector2(-367, 482)
-scale = Vector2(1.05347, 1.05347)
-texture = ExtResource("7_hq8n3")
+[node name="Area2D" type="Area2D" parent="Environment/Obstacles/Areas" groups=["obstacle"]]
+position = Vector2(-447, -1387.5)
 
-[node name="Sprite-0003" type="Sprite2D" parent="Environment/Obstacles/Node2D"]
-position = Vector2(773.5, 531.5)
-rotation = -0.0628319
-scale = Vector2(-1, 1)
-texture = ExtResource("7_hq8n3")
-
-[node name="Sprite-0005" type="Sprite2D" parent="Environment/Obstacles/Node2D"]
-position = Vector2(-332.5, -717.5)
-rotation = -3.03968
-scale = Vector2(-1, 1)
-texture = ExtResource("7_hq8n3")
-
-[node name="Sprite-0006" type="Sprite2D" parent="Environment/Obstacles/Node2D"]
-position = Vector2(774.688, -677.657)
-rotation = -3.16494
-scale = Vector2(1, 1.10171)
-texture = ExtResource("7_hq8n3")
-
-[node name="Sprite-0007" type="Sprite2D" parent="Environment/Obstacles/Node2D"]
-position = Vector2(1803, -528.5)
-rotation = -3.16494
-scale = Vector2(1.56022, 1.56022)
-texture = ExtResource("7_hq8n3")
-
-[node name="Sprite-0004" type="Sprite2D" parent="Environment/Obstacles/Node2D"]
-position = Vector2(2791, 741)
-scale = Vector2(1.05347, 1.05347)
-texture = ExtResource("7_hq8n3")
-
-[node name="Area2D" type="Area2D" parent="Environment/Obstacles/Node2D" groups=["obstacle"]]
-position = Vector2(-433, -569)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Node2D/Area2D"]
-position = Vector2(100.75, -194.25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Areas/Area2D"]
+position = Vector2(-117.5, -403.5)
 shape = SubResource("RectangleShape2D_2gsgs")
 
-[node name="Area2D2" type="Area2D" parent="Environment/Obstacles/Node2D" groups=["obstacle"]]
-position = Vector2(1396, -1181)
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/Areas/Area2D"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_2oqxv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Node2D/Area2D2"]
-position = Vector2(-598.5, 304.375)
+[node name="Area2D2" type="Area2D" parent="Environment/Obstacles/Areas" groups=["obstacle"]]
+position = Vector2(741, -1564)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Areas/Area2D2"]
+position = Vector2(7.5, 267.688)
 shape = SubResource("RectangleShape2D_no37o")
 
-[node name="Area2D3" type="Area2D" parent="Environment/Obstacles/Node2D" groups=["obstacle"]]
-position = Vector2(-515, 617)
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/Areas/Area2D2"]
+scale = Vector2(-5, 5)
+texture = ExtResource("1_2oqxv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Node2D/Area2D3"]
-position = Vector2(-17.25, 25)
+[node name="Area2D3" type="Area2D" parent="Environment/Obstacles/Areas" groups=["obstacle"]]
+position = Vector2(-403, 1097.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Areas/Area2D3"]
+position = Vector2(-62.25, 429.25)
 shape = SubResource("RectangleShape2D_x4mnv")
 
-[node name="Area2D4" type="Area2D" parent="Environment/Obstacles/Node2D" groups=["obstacle"]]
-position = Vector2(1462, 629)
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/Areas/Area2D3"]
+scale = Vector2(5, -5)
+texture = ExtResource("1_3qwbg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Node2D/Area2D4"]
-position = Vector2(-703.75, 54)
+[node name="Area2D4" type="Area2D" parent="Environment/Obstacles/Areas" groups=["obstacle"]]
+position = Vector2(709, 1233.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Areas/Area2D4"]
+position = Vector2(24.125, -170)
 shape = SubResource("RectangleShape2D_wi4o1")
 
-[node name="Area2D5" type="Area2D" parent="Environment/Obstacles/Node2D" groups=["obstacle"]]
-position = Vector2(3740, -827)
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/Areas/Area2D4"]
+scale = Vector2(-5, -5)
+texture = ExtResource("1_2oqxv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Node2D/Area2D5"]
-position = Vector2(-1907.5, -122.5)
+[node name="Area2D5" type="Area2D" parent="Environment/Obstacles/Areas" groups=["obstacle"]]
+position = Vector2(1830.5, -879)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Areas/Area2D5"]
+position = Vector2(11.5, -49.5)
 shape = SubResource("RectangleShape2D_revif")
 
-[node name="Area2D6" type="Area2D" parent="Environment/Obstacles/Node2D" groups=["obstacle"]]
-position = Vector2(5604, 1358)
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/Areas/Area2D5"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_3qwbg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Node2D/Area2D6"]
-position = Vector2(-2808.75, 83.5)
+[node name="Area2D6" type="Area2D" parent="Environment/Obstacles/Areas" groups=["obstacle"]]
+position = Vector2(2787.5, 1373)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/Areas/Area2D6"]
 shape = SubResource("RectangleShape2D_cahd7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/Areas/Area2D6"]
+scale = Vector2(5, -5)
+texture = ExtResource("1_2oqxv")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Environment"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
-position = Vector2(516, -287)
-motion_mirroring = Vector2(3840, 0)
+position = Vector2(-20, -222)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(12500, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.414063, 0.523438, 0.578125, 1)
+position = Vector2(3034.25, -1953)
+scale = Vector2(125.625, 30.88)
+texture = ExtResource("1_l2jh4")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.414063, 0.523438, 0.578125, 1)
+position = Vector2(3051.75, 2352)
+scale = Vector2(125.625, 30.88)
+texture = ExtResource("1_l2jh4")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer"]
-modulate = Color(0.223529, 0.223529, 0.25098, 1)
-position = Vector2(14.0001, 998)
-texture = ExtResource("2_o8jtj")
+position = Vector2(3004.5, 58.9995)
+scale = Vector2(5, 5)
+texture = ExtResource("1_18erb")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer"]
-modulate = Color(0.223529, 0.223529, 0.25098, 1)
-position = Vector2(14.0001, -746)
-rotation = -3.14159
-texture = ExtResource("2_o8jtj")
+position = Vector2(3022, 372)
+scale = Vector2(-5, -5)
+texture = ExtResource("1_18erb")
+metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
-position = Vector2(516, -287)
+position = Vector2(-20, -222)
 motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(7680, 0)
+motion_mirroring = Vector2(12500, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.289063, 0.363281, 0.402344, 1)
+position = Vector2(3125.5, -2350)
+scale = Vector2(127.91, 30.88)
+texture = ExtResource("1_l2jh4")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.289063, 0.363281, 0.402344, 1)
+position = Vector2(3125.5, 2734)
+scale = Vector2(127.91, 30.88)
+texture = ExtResource("1_l2jh4")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.694118, 0.694118, 0.694118, 1)
+position = Vector2(805, 730)
+scale = Vector2(5, -5)
+texture = ExtResource("1_18erb")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer2"]
-modulate = Color(0.196078, 0.196078, 0.231373, 1)
-position = Vector2(1935, 337)
-scale = Vector2(2, 2)
-texture = ExtResource("3_phmcp")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer2"]
-modulate = Color(0.196078, 0.196078, 0.231373, 1)
-position = Vector2(1935, 337)
-rotation = 3.14159
-scale = Vector2(2, 2)
-texture = ExtResource("3_phmcp")
+modulate = Color(0.694118, 0.694118, 0.694118, 1)
+position = Vector2(805.001, -434)
+scale = Vector2(-5, 5)
+texture = ExtResource("1_18erb")
+metadata/_edit_lock_ = true
 
 [node name="Gameplay" type="Node2D" parent="."]
 
@@ -198,10 +241,12 @@ speed = 250.0
 shape = SubResource("RectangleShape2D_h80q1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Submarine"]
-texture = ExtResource("2_afng8")
+modulate = Color(0.619608, 0.619608, 0.619608, 1)
+scale = Vector2(5, 5)
+texture = ExtResource("6_3t85j")
 
 [node name="Camera2D" type="Camera2D" parent="Submarine"]
-zoom = Vector2(0.7, 0.7)
+zoom = Vector2(0.5, 0.5)
 
 [node name="ObstaclesDetector" type="Area2D" parent="Submarine"]
 
@@ -292,6 +337,9 @@ theme_override_constants/margin_bottom = 25
 [node name="DownButton" type="Button" parent="CanvasLayer/Control/ColorRectCommands/HBoxContainer/MarginContainer3"]
 layout_mode = 2
 text = "    \\/    "
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u6g6f")
 
 [connection signal="area_entered" from="Submarine/ObstaclesDetector" to="Submarine" method="_on_obstacles_detector_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/ColorRectCommands/HBoxContainer/MarginContainer/UpButton" to="Commands" method="_on_up_button_pressed"]

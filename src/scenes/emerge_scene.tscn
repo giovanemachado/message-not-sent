@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ci7bq8dim3vtv"]
+[gd_scene load_steps=13 format=3 uid="uid://ci7bq8dim3vtv"]
 
 [ext_resource type="Texture2D" uid="uid://bgyhkbtrs4xwp" path="res://src/utils/assets/all_sizes.png" id="1_0kcuj"]
 [ext_resource type="Texture2D" uid="uid://em16460w5pdb" path="res://src/utils/assets/100x100.png" id="2_g5j0h"]
 [ext_resource type="Script" path="res://src/emerge/EmergeGameplay.gd" id="2_glhhq"]
 [ext_resource type="Script" path="res://src/emerge/MessagesTracking.gd" id="3_86nip"]
+[ext_resource type="Texture2D" uid="uid://1o5ugiweo816" path="res://src/art/phone.png" id="4_q2gt1"]
+[ext_resource type="Texture2D" uid="uid://0sn05ehlharo" path="res://src/art/phone2.png" id="5_aq4t8"]
 [ext_resource type="PackedScene" uid="uid://ndegxk7e1wfy" path="res://src/emerge/messages/message_box_scene.tscn" id="5_c67yt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cokg"]
@@ -67,9 +69,14 @@ script = ExtResource("3_86nip")
 position = Vector2(606, 337)
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone"]
-modulate = Color(0.109804, 0.109804, 0.109804, 1)
-scale = Vector2(4.075, 6.245)
-texture = ExtResource("2_g5j0h")
+position = Vector2(0, 123)
+scale = Vector2(5, 5)
+texture = ExtResource("4_q2gt1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone"]
+position = Vector2(0, 247)
+scale = Vector2(5, -5)
+texture = ExtResource("5_aq4t8")
 
 [node name="Contacts" type="Node2D" parent="Gameplay/Phone"]
 visible = false
