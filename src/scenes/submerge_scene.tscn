@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cy5i5q85piqiv"]
+[gd_scene load_steps=18 format=3 uid="uid://cy5i5q85piqiv"]
 
 [ext_resource type="Texture2D" uid="uid://d4mskpemmctm8" path="res://src/art/spike2.png" id="1_2oqxv"]
 [ext_resource type="Texture2D" uid="uid://ew6qiponq6xf" path="res://src/art/spike1.png" id="1_3qwbg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/submerge/submarine/Submarine.gd" id="3_7535w"]
 [ext_resource type="Script" path="res://src/submerge/Commands.gd" id="3_boxii"]
 [ext_resource type="Texture2D" uid="uid://byucnsy65pjdw" path="res://src/art/sub.png" id="6_3t85j"]
+[ext_resource type="Texture2D" uid="uid://doigfxkwshnlf" path="res://src/art/radar.png" id="8_vhweo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gsgs"]
 size = Vector2(450, 1226)
@@ -274,13 +275,17 @@ grow_vertical = 2
 color = Color(0.415686, 0.415686, 0.415686, 1)
 
 [node name="ColorRectRadar" type="ColorRect" parent="CanvasLayer/Control"]
-visible = false
 layout_mode = 1
 offset_left = 21.0
 offset_top = 13.0
 offset_right = 297.0
 offset_bottom = 179.0
-color = Color(0.180119, 0.483092, 0.342316, 1)
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
+position = Vector2(126, 78)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_vhweo")
 
 [node name="ColorRectCommands" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 1
