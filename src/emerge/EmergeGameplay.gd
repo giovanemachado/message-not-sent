@@ -31,9 +31,10 @@ func _ready():
 	write_clicked = false
 	message_sent = false
 	can_dive = false
+	current_level = Globals.current_level
 	
 func _on_submerge_button_pressed():
-	if !can_dive: return
+#	if !can_dive: return
 	
 	SceneLoader.scene_transition(Globals.SCENES.SUBMERGE)
 

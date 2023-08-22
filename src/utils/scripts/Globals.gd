@@ -18,6 +18,8 @@ const GROUPS = {
 	OBSTACLES = 'obstacle'
 }
 
+var current_level: int = 1
+
 #enum ExampleEnum {A, B}
 #
 #const EXAMPLE_CONST = 'const value'

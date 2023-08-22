@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ci7bq8dim3vtv"]
+[gd_scene load_steps=27 format=3 uid="uid://ci7bq8dim3vtv"]
 
 [ext_resource type="Texture2D" uid="uid://cwnoomfrd8au8" path="res://src/art/clouds.png" id="1_eq0ir"]
 [ext_resource type="Script" path="res://src/emerge/effects/ParallaxBackground.gd" id="1_nsmkd"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c5oq2ks3oxl0k" path="res://src/art/chat_box.png" id="12_3v61x"]
 [ext_resource type="Texture2D" uid="uid://da1oodt0qlt7l" path="res://src/art/contact1_in_chat.png" id="13_60u7w"]
 [ext_resource type="Texture2D" uid="uid://msn3na8fecql" path="res://src/art/contact2_in_chat.png" id="16_6h7ye"]
+[ext_resource type="Texture2D" uid="uid://ttf3rmk21m2u" path="res://src/art/button.png" id="17_c51jx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2kgt"]
 bg_color = Color(1, 1, 1, 0)
@@ -186,6 +187,7 @@ theme_override_font_sizes/font_size = 32
 text = "boss"
 
 [node name="Message" type="Node2D" parent="Gameplay/Phone"]
+visible = false
 
 [node name="ContactsButton" type="Button" parent="Gameplay/Phone/Message"]
 offset_left = -189.0
@@ -461,14 +463,15 @@ text = "boss"
 position = Vector2(1082, 586)
 
 [node name="SubmergeButtonSprite2D" type="Sprite2D" parent="Gameplay/Commands"]
-modulate = Color(1, 0.45098, 0.45098, 1)
-texture = ExtResource("2_g5j0h")
+position = Vector2(-39, -20)
+scale = Vector2(5, 5)
+texture = ExtResource("17_c51jx")
 
 [node name="SubmergeButton" type="Button" parent="Gameplay/Commands"]
-offset_left = -50.0
-offset_top = -51.0
-offset_right = 50.0
-offset_bottom = 51.0
+offset_left = -125.0
+offset_top = -85.0
+offset_right = 48.0
+offset_bottom = 31.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
 
 [connection signal="pressed" from="Gameplay/Phone/Contacts/Contact1/Contact1Button" to="Gameplay" method="_on_contact_1_button_pressed"]

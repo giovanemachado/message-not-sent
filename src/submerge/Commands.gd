@@ -8,7 +8,7 @@ extends Node2D
 @onready var sub = $"../Submarine"
 @export var all_marks: Array[Marker2D]
 var current_mark_index = 1
-var current_height = 1 #  0 bottom, 1 middle, 2 top
+var current_height = 1 #  0 bottom, 1 middle, 2 top # defined by Submerge script
 var current_distance = 0 # 0 start, 1 middle, 2 end
 
 func _on_up_button_pressed():
