@@ -14,19 +14,19 @@
 size = Vector2(450, 1226)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no37o"]
-size = Vector2(223, 1882.63)
+size = Vector2(203.5, 1895.63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4mnv"]
 size = Vector2(197.5, 309.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi4o1"]
-size = Vector2(259.25, 2043)
+size = Vector2(165, 1974)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_revif"]
-size = Vector2(255, 2211)
+size = Vector2(190.5, 2192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cahd7"]
-size = Vector2(291.5, 2382)
+size = Vector2(160.25, 2392)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h80q1"]
 
@@ -137,6 +137,7 @@ scale = Vector2(-2.5, -2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="AreasLevel2" type="Node2D" parent="Environment/Obstacles"]
+visible = false
 position = Vector2(494, 161)
 scale = Vector2(2, 2)
 
@@ -154,11 +155,11 @@ scale = Vector2(-2.5, 2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D7" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(1667.5, -1029.5)
+position = Vector2(1824.5, -1029.5)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D7"]
-position = Vector2(7.5, 267.688)
+position = Vector2(17.25, 274.187)
 shape = SubResource("RectangleShape2D_no37o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel2/Area2D7"]
@@ -180,11 +181,11 @@ scale = Vector2(2.5, -2.5)
 texture = ExtResource("1_3qwbg")
 
 [node name="Area2D4" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(709, 1233.5)
+position = Vector2(709, 1309.5)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D4"]
-position = Vector2(24.125, -170)
+position = Vector2(-3, -135.5)
 shape = SubResource("RectangleShape2D_wi4o1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel2/Area2D4"]
@@ -197,7 +198,7 @@ position = Vector2(1830.5, -879)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D5"]
-position = Vector2(945, -448.5)
+position = Vector2(977.25, -458)
 shape = SubResource("RectangleShape2D_revif")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel2/Area2D5"]
@@ -210,6 +211,7 @@ position = Vector2(2787.5, 1373)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D6"]
+position = Vector2(65.625, -5)
 shape = SubResource("RectangleShape2D_cahd7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel2/Area2D6"]
@@ -350,6 +352,7 @@ texture = ExtResource("6_3t85j")
 zoom = Vector2(0.5, 0.5)
 
 [node name="ObstaclesDetector" type="Area2D" parent="Submarine"]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Submarine/ObstaclesDetector"]
 shape = SubResource("CircleShape2D_2bj2t")
@@ -382,7 +385,14 @@ offset_right = 297.0
 offset_bottom = 179.0
 color = Color(1, 1, 1, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
+[node name="Radar1" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
+visible = false
+position = Vector2(126, 78)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_vhweo")
+
+[node name="Radar2" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
+visible = false
 position = Vector2(126, 78)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("8_vhweo")

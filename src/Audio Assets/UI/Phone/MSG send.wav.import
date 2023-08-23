@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ci3euf2thkb0a"
+path="res://.godot/imported/MSG send.wav-38a4ebdd398bd7fdae6039f1183c4f15.sample"
+
+[deps]
+
+source_file="res://src/Audio Assets/UI/Phone/MSG send.wav"
+dest_files=["res://.godot/imported/MSG send.wav-38a4ebdd398bd7fdae6039f1183c4f15.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
