@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cy5i5q85piqiv"]
+[gd_scene load_steps=23 format=3 uid="uid://cy5i5q85piqiv"]
 
 [ext_resource type="Texture2D" uid="uid://d4mskpemmctm8" path="res://src/art/spike2.png" id="1_2oqxv"]
 [ext_resource type="Texture2D" uid="uid://ew6qiponq6xf" path="res://src/art/spike1.png" id="1_3qwbg"]
@@ -8,19 +8,23 @@
 [ext_resource type="Script" path="res://src/submerge/submarine/Submarine.gd" id="3_7535w"]
 [ext_resource type="Script" path="res://src/submerge/Commands.gd" id="3_boxii"]
 [ext_resource type="Texture2D" uid="uid://byucnsy65pjdw" path="res://src/art/sub.png" id="6_3t85j"]
-[ext_resource type="Texture2D" uid="uid://doigfxkwshnlf" path="res://src/art/radar.png" id="8_vhweo"]
+[ext_resource type="Texture2D" uid="uid://b5db8ant232y8" path="res://src/art/radar1.png" id="9_ad3o6"]
+[ext_resource type="Texture2D" uid="uid://dxkdq3jhy0alj" path="res://src/art/radar2.png" id="10_ckf1s"]
+[ext_resource type="Texture2D" uid="uid://cvpjqrglh7yk4" path="res://src/art/radar3.png" id="11_db2m7"]
+[ext_resource type="Texture2D" uid="uid://ili6salwgxlk" path="res://src/art/radar4.png" id="12_q6fco"]
+[ext_resource type="Texture2D" uid="uid://clmovas5x004p" path="res://src/art/radar5.png" id="13_qyras"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gsgs"]
 size = Vector2(450, 1226)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no37o"]
-size = Vector2(203.5, 1895.63)
+size = Vector2(252.75, 1389.63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4mnv"]
-size = Vector2(197.5, 309.5)
+size = Vector2(444, 209)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi4o1"]
-size = Vector2(165, 1974)
+size = Vector2(280.5, 1724)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_revif"]
 size = Vector2(190.5, 2192)
@@ -78,10 +82,10 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D2" type="Area2D" parent="Environment/Obstacles/AreasLevel1" groups=["obstacle"]]
-position = Vector2(741, -1564)
+position = Vector2(709, -1448)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel1/Area2D2"]
-position = Vector2(7.5, 267.688)
+position = Vector2(-3.125, 422.188)
 shape = SubResource("RectangleShape2D_no37o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel1/Area2D2"]
@@ -155,11 +159,11 @@ scale = Vector2(-2.5, 2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D7" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(1824.5, -1029.5)
+position = Vector2(2663.5, -1131.5)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D7"]
-position = Vector2(17.25, 274.187)
+position = Vector2(33, 339.687)
 shape = SubResource("RectangleShape2D_no37o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel2/Area2D7"]
@@ -194,20 +198,20 @@ scale = Vector2(-2.5, -2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D5" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(1830.5, -879)
+position = Vector2(1736.5, -994.5)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D5"]
-position = Vector2(977.25, -458)
+position = Vector2(0, -458)
 shape = SubResource("RectangleShape2D_revif")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel2/Area2D5"]
-position = Vector2(933.5, 157)
+position = Vector2(0, 157)
 scale = Vector2(-2.5, 2.5)
 texture = ExtResource("1_3qwbg")
 
 [node name="Area2D6" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(2787.5, 1373)
+position = Vector2(1694, 1381.5)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D6"]
@@ -218,6 +222,138 @@ shape = SubResource("RectangleShape2D_cahd7")
 position = Vector2(7, -591.5)
 scale = Vector2(-2.5, -2.5)
 texture = ExtResource("1_2oqxv")
+
+[node name="AreasLevel3" type="Node2D" parent="Environment/Obstacles"]
+visible = false
+position = Vector2(494, 161)
+scale = Vector2(2, 2)
+
+[node name="Area2D2" type="Area2D" parent="Environment/Obstacles/AreasLevel3" groups=["obstacle"]]
+position = Vector2(-278, -1468)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel3/Area2D2"]
+position = Vector2(-9.75, 48.1877)
+shape = SubResource("RectangleShape2D_no37o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel3/Area2D2"]
+position = Vector2(0, 598.5)
+scale = Vector2(-2.5, 2.5)
+texture = ExtResource("1_2oqxv")
+
+[node name="Area2D4" type="Area2D" parent="Environment/Obstacles/AreasLevel3" groups=["obstacle"]]
+position = Vector2(-288.5, 1234.5)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel3/Area2D4"]
+position = Vector2(-60.75, -10.5)
+shape = SubResource("RectangleShape2D_wi4o1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel3/Area2D4"]
+position = Vector2(0, -549)
+scale = Vector2(-2.5, -2.5)
+texture = ExtResource("1_2oqxv")
+
+[node name="AreasLevel4" type="Node2D" parent="Environment/Obstacles"]
+visible = false
+position = Vector2(494, 161)
+scale = Vector2(2, 2)
+
+[node name="Area2D2" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["obstacle"]]
+position = Vector2(831.5, -1564)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel4/Area2D2"]
+position = Vector2(7.5, 267.688)
+shape = SubResource("RectangleShape2D_no37o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel4/Area2D2"]
+position = Vector2(0, 598.5)
+scale = Vector2(-2.5, 2.5)
+texture = ExtResource("1_2oqxv")
+
+[node name="Area2D7" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["obstacle"]]
+position = Vector2(1815, -1496)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel4/Area2D7"]
+position = Vector2(17.25, 274.187)
+shape = SubResource("RectangleShape2D_no37o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel4/Area2D7"]
+position = Vector2(0, 598.5)
+scale = Vector2(-2.5, 2.5)
+texture = ExtResource("1_2oqxv")
+
+[node name="Area2D3" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["obstacle"]]
+position = Vector2(-126.5, 638.5)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel4/Area2D3"]
+position = Vector2(86.5, 178.5)
+shape = SubResource("RectangleShape2D_x4mnv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel4/Area2D3"]
+position = Vector2(68, -515)
+scale = Vector2(2.5, -2.5)
+texture = ExtResource("1_3qwbg")
+
+[node name="Area2D4" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["obstacle"]]
+position = Vector2(861.5, 1247)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel4/Area2D4"]
+position = Vector2(-3, -135.5)
+shape = SubResource("RectangleShape2D_wi4o1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel4/Area2D4"]
+position = Vector2(0, -549)
+scale = Vector2(-2.5, -2.5)
+texture = ExtResource("1_2oqxv")
+
+[node name="Area2D6" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["obstacle"]]
+position = Vector2(2787.5, 1373)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel4/Area2D6"]
+position = Vector2(65.625, -5)
+shape = SubResource("RectangleShape2D_cahd7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel4/Area2D6"]
+position = Vector2(7, -591.5)
+scale = Vector2(-2.5, -2.5)
+texture = ExtResource("1_2oqxv")
+
+[node name="AreasLevel5" type="Node2D" parent="Environment/Obstacles"]
+visible = false
+position = Vector2(494, 161)
+scale = Vector2(2, 2)
+
+[node name="Area2D2" type="Area2D" parent="Environment/Obstacles/AreasLevel5" groups=["obstacle"]]
+position = Vector2(-325.5, -1426.5)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel5/Area2D2"]
+position = Vector2(-60.375, 14.1865)
+shape = SubResource("RectangleShape2D_no37o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel5/Area2D2"]
+position = Vector2(0, 598.5)
+scale = Vector2(-2.5, 2.5)
+texture = ExtResource("1_2oqxv")
+
+[node name="Area2D3" type="Area2D" parent="Environment/Obstacles/AreasLevel5" groups=["obstacle"]]
+position = Vector2(-312.5, 1080.5)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel5/Area2D3"]
+position = Vector2(-62.25, 429.25)
+shape = SubResource("RectangleShape2D_x4mnv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel5/Area2D3"]
+position = Vector2(9, -463)
+scale = Vector2(2.5, -2.5)
+texture = ExtResource("1_3qwbg")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Environment"]
 
@@ -387,15 +523,32 @@ color = Color(1, 1, 1, 0)
 
 [node name="Radar1" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
 visible = false
-position = Vector2(126, 78)
+position = Vector2(126, 84)
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("8_vhweo")
+texture = ExtResource("9_ad3o6")
 
 [node name="Radar2" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
-visible = false
-position = Vector2(126, 78)
+position = Vector2(125.5, 84.75)
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("8_vhweo")
+texture = ExtResource("10_ckf1s")
+
+[node name="Radar3" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
+visible = false
+position = Vector2(125.5, 84.75)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("11_db2m7")
+
+[node name="Radar4" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
+visible = false
+position = Vector2(125.5, 84.75)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("12_q6fco")
+
+[node name="Radar5" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
+visible = false
+position = Vector2(125.5, 84.75)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("13_qyras")
 
 [node name="ColorRectCommands" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 1

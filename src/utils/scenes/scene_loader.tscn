@@ -61,4 +61,4 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -8.0
 
-[node name="SoundEffects" type="AudioStreamPlayer2D" parent="."]
+[node name="SoundEffects" type="AudioStreamPlayer" parent="."]

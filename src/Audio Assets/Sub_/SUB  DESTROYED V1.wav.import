@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyhktjw6bdx23"
+path="res://.godot/imported/SUB  DESTROYED V1.wav-ebfb95cf2a7d07a950159ed9311d6f94.sample"
+
+[deps]
+
+source_file="res://src/Audio Assets/Sub_/SUB  DESTROYED V1.wav"
+dest_files=["res://.godot/imported/SUB  DESTROYED V1.wav-ebfb95cf2a7d07a950159ed9311d6f94.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

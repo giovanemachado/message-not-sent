@@ -45,12 +45,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "play"
 
-[node name="Tutorial" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "tutorial"
-
 [node name="Credits" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -58,5 +52,4 @@ size_flags_vertical = 4
 text = "credits"
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

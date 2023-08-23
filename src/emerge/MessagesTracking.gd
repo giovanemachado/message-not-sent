@@ -7,7 +7,7 @@ var man_messages = [
 	"how is school? are you still the best? I remember you were", # 3
 	"this job paid well, so I can go back now and live near you, try to get back that time, sorry for that", # 4
 	"this job paid well, I'll come back this weekend and we can talk", # 5 
-	"my god, this is blessing, I love you so much, how amazing I will be! I won't let anything else between us. this will be my last day here, and I'll be back to see you.", # 6 
+	"my god, this is blessing, I love you so much, how amazing I will be! I'll be back to see you!!", # 6 
 ]
 
 
