@@ -97,4 +97,9 @@ func hide_levels():
 
 func _on_submarine_reached_end():
 	Globals.current_level += 1
-	SceneLoader.scene_transition(Globals.SCENES.EMERGE)
+	
+	if Globals.current_level > 5:
+		Globals.current_level = 0
+		SceneLoader.scene_transition(Globals.SCENES.GAME_OVER)
+	else:
+		SceneLoader.scene_transition(Globals.SCENES.EMERGE)

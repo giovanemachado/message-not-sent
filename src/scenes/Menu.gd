@@ -7,7 +7,3 @@ func _on_play_pressed():
 
 func _on_credits_pressed():
 	SceneLoader.scene_transition(Globals.SCENES.CREDITS)
-
-
-func _on_tutorial_pressed():
-	SceneLoader.scene_transition(Globals.SCENES.TUTORIAL)
