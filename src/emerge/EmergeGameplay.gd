@@ -53,6 +53,8 @@ var type2_sound = preload("res://src/Audio Assets/UI/Phone/Click Keyboard Low.wa
 
 @onready var commands = $Commands
 
+@onready var tutorial = $Phone/Tutorial
+
 func _ready():
 	contacts_screen.show()
 	message_screen.hide()
@@ -63,12 +65,17 @@ func _ready():
 	current_level = Globals.current_level
 	commands.hide()
 	
+	if current_level == 1:
+		tutorial.show()
+	else:
+		tutorial.hide()
+	
 	await get_tree().create_timer(5).timeout
 	sound_effects.stream = msg_inc_sound
 	sound_effects.play()
 	
 func _on_submerge_button_pressed():
-#	if !can_dive: return
+	if !can_dive: return
 	
 	SceneLoader.scene_transition(Globals.SCENES.SUBMERGE)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cy5i5q85piqiv"]
+[gd_scene load_steps=43 format=3 uid="uid://cy5i5q85piqiv"]
 
 [ext_resource type="Texture2D" uid="uid://d4mskpemmctm8" path="res://src/art/spike2.png" id="1_2oqxv"]
 [ext_resource type="Texture2D" uid="uid://ew6qiponq6xf" path="res://src/art/spike1.png" id="1_3qwbg"]
@@ -7,35 +7,362 @@
 [ext_resource type="Script" path="res://src/submerge/Submerge.gd" id="1_ttr4y"]
 [ext_resource type="Script" path="res://src/submerge/submarine/Submarine.gd" id="3_7535w"]
 [ext_resource type="Script" path="res://src/submerge/Commands.gd" id="3_boxii"]
+[ext_resource type="Texture2D" uid="uid://by7taa228kqqr" path="res://src/art/bomb.png" id="4_b65tg"]
+[ext_resource type="Texture2D" uid="uid://di6xis74yxh37" path="res://src/art/monster.png" id="5_4ur0u"]
 [ext_resource type="Texture2D" uid="uid://byucnsy65pjdw" path="res://src/art/sub.png" id="6_3t85j"]
 [ext_resource type="Texture2D" uid="uid://b5db8ant232y8" path="res://src/art/radar1.png" id="9_ad3o6"]
 [ext_resource type="Texture2D" uid="uid://dxkdq3jhy0alj" path="res://src/art/radar2.png" id="10_ckf1s"]
 [ext_resource type="Texture2D" uid="uid://cvpjqrglh7yk4" path="res://src/art/radar3.png" id="11_db2m7"]
 [ext_resource type="Texture2D" uid="uid://ili6salwgxlk" path="res://src/art/radar4.png" id="12_q6fco"]
 [ext_resource type="Texture2D" uid="uid://clmovas5x004p" path="res://src/art/radar5.png" id="13_qyras"]
+[ext_resource type="Texture2D" uid="uid://dtyjk8a4obthv" path="res://src/art/support.png" id="16_l0p1h"]
+[ext_resource type="Texture2D" uid="uid://cbfeo8sfskiqp" path="res://src/art/button2.png" id="17_js64i"]
+[ext_resource type="Texture2D" uid="uid://c5oq2ks3oxl0k" path="res://src/art/chat_box.png" id="18_o2f55"]
+[ext_resource type="FontFile" uid="uid://dcahcytb1bhbj" path="res://src/art/NicoPups-Regular.ttf" id="19_j5ium"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gsgs"]
 size = Vector2(450, 1226)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no37o"]
-size = Vector2(252.75, 1389.63)
+size = Vector2(134.375, 1611.88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4mnv"]
 size = Vector2(444, 209)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi4o1"]
-size = Vector2(280.5, 1724)
+size = Vector2(141, 1915)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_revif"]
-size = Vector2(190.5, 2192)
+size = Vector2(241.25, 2210)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cahd7"]
 size = Vector2(160.25, 2392)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ktqi"]
+radius = 192.079
+
+[sub_resource type="Animation" id="Animation_nm1bt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bomb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(551.5, -604)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bomb2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2502, 404)]
+}
+
+[sub_resource type="Animation" id="Animation_cf4ty"]
+resource_name = "new_animation"
+length = 6.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bomb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(551.5, -604), Vector2(551.5, 418.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bomb2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2502, 404), Vector2(2502, -746.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tf4bj"]
+_data = {
+"RESET": SubResource("Animation_nm1bt"),
+"new_animation": SubResource("Animation_cf4ty")
+}
+
+[sub_resource type="Animation" id="Animation_kwt86"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bomb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1352, -604)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bomb2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2394.5, 417.5)]
+}
+
+[sub_resource type="Animation" id="Animation_o0fpw"]
+resource_name = "new_animation"
+length = 6.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bomb:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1352, -604), Vector2(1372, 391.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bomb2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2394.5, 417.5), Vector2(2421.5, -672.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1b7e"]
+_data = {
+"RESET": SubResource("Animation_kwt86"),
+"new_animation": SubResource("Animation_o0fpw")
+}
+
+[sub_resource type="Animation" id="Animation_62bvj"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0890118]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.117647, 0.117647, 0.117647, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.470588, 0.470588, 0.470588, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_d1cbo"]
+resource_name = "m"
+length = 2.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.82, 1.59, 1.87),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.47, 0.76),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0890118, -0.0872665, 0.0890118, -0.0645772]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.84),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.117647, 0.117647, 0.117647, 0), Color(0.117647, 0.117647, 0.117647, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.83),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.470588, 0.470588, 0.470588, 0), Color(0.470588, 0.470588, 0.470588, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.85),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbtqu"]
+_data = {
+"RESET": SubResource("Animation_62bvj"),
+"m": SubResource("Animation_d1cbo")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h80q1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bj2t"]
 radius = 127.016
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v06xq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xhup"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g60ke"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stysn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Environment" id="Environment_u6g6f"]
 background_mode = 3
@@ -82,10 +409,10 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D2" type="Area2D" parent="Environment/Obstacles/AreasLevel1" groups=["obstacle"]]
-position = Vector2(709, -1448)
+position = Vector2(767.5, -1504)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel1/Area2D2"]
-position = Vector2(-3.125, 422.188)
+position = Vector2(43.875, 452.437)
 shape = SubResource("RectangleShape2D_no37o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel1/Area2D2"]
@@ -106,10 +433,10 @@ scale = Vector2(2.5, -2.5)
 texture = ExtResource("1_3qwbg")
 
 [node name="Area2D4" type="Area2D" parent="Environment/Obstacles/AreasLevel1" groups=["obstacle"]]
-position = Vector2(709, 1233.5)
+position = Vector2(808, 1228)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel1/Area2D4"]
-position = Vector2(24.125, -170)
+position = Vector2(28.5, -211)
 shape = SubResource("RectangleShape2D_wi4o1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel1/Area2D4"]
@@ -118,10 +445,10 @@ scale = Vector2(-2.5, -2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D5" type="Area2D" parent="Environment/Obstacles/AreasLevel1" groups=["obstacle"]]
-position = Vector2(1830.5, -879)
+position = Vector2(1961.5, -897.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel1/Area2D5"]
-position = Vector2(11.5, -49.5)
+position = Vector2(-13.875, -40.5)
 shape = SubResource("RectangleShape2D_revif")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel1/Area2D5"]
@@ -130,7 +457,7 @@ scale = Vector2(-2.5, 2.5)
 texture = ExtResource("1_3qwbg")
 
 [node name="Area2D6" type="Area2D" parent="Environment/Obstacles/AreasLevel1" groups=["obstacle"]]
-position = Vector2(2787.5, 1373)
+position = Vector2(2925.5, 1390)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel1/Area2D6"]
 shape = SubResource("RectangleShape2D_cahd7")
@@ -146,11 +473,11 @@ position = Vector2(494, 161)
 scale = Vector2(2, 2)
 
 [node name="Area2D2" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(741, -1564)
+position = Vector2(938, -1478.5)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D2"]
-position = Vector2(7.5, 267.688)
+position = Vector2(19.6875, 348.562)
 shape = SubResource("RectangleShape2D_no37o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel2/Area2D2"]
@@ -159,7 +486,7 @@ scale = Vector2(-2.5, 2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D7" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(2663.5, -1131.5)
+position = Vector2(2949, -1090)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D7"]
@@ -185,11 +512,11 @@ scale = Vector2(2.5, -2.5)
 texture = ExtResource("1_3qwbg")
 
 [node name="Area2D4" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(709, 1309.5)
+position = Vector2(953.5, 1300)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D4"]
-position = Vector2(-3, -135.5)
+position = Vector2(20, -190)
 shape = SubResource("RectangleShape2D_wi4o1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel2/Area2D4"]
@@ -198,7 +525,7 @@ scale = Vector2(-2.5, -2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D5" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(1736.5, -994.5)
+position = Vector2(1863.5, -978.5)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D5"]
@@ -211,7 +538,7 @@ scale = Vector2(-2.5, 2.5)
 texture = ExtResource("1_3qwbg")
 
 [node name="Area2D6" type="Area2D" parent="Environment/Obstacles/AreasLevel2" groups=["obstacle"]]
-position = Vector2(1694, 1381.5)
+position = Vector2(1792.5, 1400.5)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel2/Area2D6"]
@@ -254,6 +581,34 @@ position = Vector2(0, -549)
 scale = Vector2(-2.5, -2.5)
 texture = ExtResource("1_2oqxv")
 
+[node name="Bomb" type="Area2D" parent="Environment/Obstacles/AreasLevel3" groups=["obstacle"]]
+position = Vector2(551.5, -604)
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel3/Bomb"]
+scale = Vector2(2.5, -2.5)
+texture = ExtResource("4_b65tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel3/Bomb"]
+shape = SubResource("CircleShape2D_7ktqi")
+
+[node name="Bomb2" type="Area2D" parent="Environment/Obstacles/AreasLevel3" groups=["obstacle"]]
+position = Vector2(2502, 404)
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel3/Bomb2"]
+scale = Vector2(2.5, -2.5)
+texture = ExtResource("4_b65tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel3/Bomb2"]
+shape = SubResource("CircleShape2D_7ktqi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/Obstacles/AreasLevel3"]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_tf4bj")
+}
+
 [node name="AreasLevel4" type="Node2D" parent="Environment/Obstacles"]
 visible = false
 position = Vector2(494, 161)
@@ -286,7 +641,7 @@ scale = Vector2(-2.5, 2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D3" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["obstacle"]]
-position = Vector2(-126.5, 638.5)
+position = Vector2(-110.5, 568.5)
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel4/Area2D3"]
@@ -312,7 +667,7 @@ scale = Vector2(-2.5, -2.5)
 texture = ExtResource("1_2oqxv")
 
 [node name="Area2D6" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["obstacle"]]
-position = Vector2(2787.5, 1373)
+position = Vector2(2972.5, 1366.5)
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel4/Area2D6"]
@@ -323,6 +678,34 @@ shape = SubResource("RectangleShape2D_cahd7")
 position = Vector2(7, -591.5)
 scale = Vector2(-2.5, -2.5)
 texture = ExtResource("1_2oqxv")
+
+[node name="Bomb" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["obstacle"]]
+position = Vector2(1352, -604)
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel4/Bomb"]
+scale = Vector2(2.5, -2.5)
+texture = ExtResource("4_b65tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel4/Bomb"]
+shape = SubResource("CircleShape2D_7ktqi")
+
+[node name="Bomb2" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["obstacle"]]
+position = Vector2(2394.5, 417.5)
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel4/Bomb2"]
+scale = Vector2(2.5, -2.5)
+texture = ExtResource("4_b65tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Obstacles/AreasLevel4/Bomb2"]
+shape = SubResource("CircleShape2D_7ktqi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/Obstacles/AreasLevel4"]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_b1b7e")
+}
 
 [node name="AreasLevel5" type="Node2D" parent="Environment/Obstacles"]
 visible = false
@@ -354,6 +737,28 @@ shape = SubResource("RectangleShape2D_x4mnv")
 position = Vector2(9, -463)
 scale = Vector2(2.5, -2.5)
 texture = ExtResource("1_3qwbg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel5"]
+modulate = Color(0.470588, 0.470588, 0.470588, 0)
+position = Vector2(3100.5, 384.5)
+rotation = 0.0890118
+scale = Vector2(10, 10)
+texture = ExtResource("5_4ur0u")
+hframes = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="Environment/Obstacles/AreasLevel5"]
+modulate = Color(0.117647, 0.117647, 0.117647, 0)
+z_index = -1
+position = Vector2(3100.5, -209)
+scale = Vector2(125.314, 35.0878)
+texture = ExtResource("1_l2jh4")
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/Obstacles/AreasLevel5"]
+libraries = {
+"": SubResource("AnimationLibrary_cbtqu")
+}
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Environment"]
 
@@ -426,6 +831,7 @@ metadata/_edit_lock_ = true
 [node name="Gameplay" type="Node2D" parent="."]
 
 [node name="Mark1" type="Marker2D" parent="Gameplay"]
+visible = false
 position = Vector2(466, 0.999999)
 scale = Vector2(17.3978, 17.3978)
 
@@ -460,19 +866,23 @@ position = Vector2(6500, -1000)
 
 [node name="Marker2D1" type="Marker2D" parent="Gameplay/UtilMarks"]
 position = Vector2(495, -32)
+scale = Vector2(23.4054, 23.4054)
 
 [node name="Marker2D0" type="Marker2D" parent="Gameplay/UtilMarks"]
 position = Vector2(479, 908)
+scale = Vector2(21.6307, 21.6307)
 
 [node name="Marker2D2" type="Marker2D" parent="Gameplay/UtilMarks"]
-position = Vector2(578, -1029)
+position = Vector2(497, -1029)
+scale = Vector2(-24.0442, -24.0442)
 
 [node name="Commands" type="Node2D" parent="." node_paths=PackedStringArray("all_marks")]
+visible = false
 script = ExtResource("3_boxii")
 all_marks = [null, NodePath("../Gameplay/Mark1"), NodePath("../Gameplay/Mark2"), NodePath("../Gameplay/Mark3"), NodePath("../Gameplay/Mark4"), NodePath("../Gameplay/Mark5"), NodePath("../Gameplay/Mark6"), NodePath("../Gameplay/Mark7"), NodePath("../Gameplay/Mark8"), NodePath("../Gameplay/Mark9"), NodePath("../Gameplay/Mark10")]
 
 [node name="Submarine" type="CharacterBody2D" parent="."]
-position = Vector2(-922, 9)
+position = Vector2(-723, -27)
 script = ExtResource("3_7535w")
 speed = 250.0
 
@@ -485,7 +895,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("6_3t85j")
 
 [node name="Camera2D" type="Camera2D" parent="Submarine"]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.4, 0.4)
 
 [node name="ObstaclesDetector" type="Area2D" parent="Submarine"]
 collision_mask = 0
@@ -528,6 +938,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("9_ad3o6")
 
 [node name="Radar2" type="Sprite2D" parent="CanvasLayer/Control/ColorRectRadar"]
+visible = false
 position = Vector2(125.5, 84.75)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("10_ckf1s")
@@ -563,54 +974,119 @@ offset_right = 215.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
-color = Color(0.25098, 0.25098, 0.25098, 1)
+color = Color(0.25098, 0.25098, 0.25098, 0)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/ColorRectCommands"]
-layout_mode = 2
-offset_left = 91.5
-offset_right = 408.5
-offset_bottom = 81.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+position = Vector2(230.5, 29.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("16_l0p1h")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/ColorRectCommands/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+position = Vector2(227.5, 2)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("17_js64i")
 
-[node name="UpButton" type="Button" parent="CanvasLayer/Control/ColorRectCommands/HBoxContainer/MarginContainer"]
-layout_mode = 2
-text = "    /\\    "
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+position = Vector2(411, 48.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("16_l0p1h")
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/ColorRectCommands/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+position = Vector2(412, 16)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("17_js64i")
 
-[node name="ForwardButton" type="Button" parent="CanvasLayer/Control/ColorRectCommands/HBoxContainer/MarginContainer2"]
-layout_mode = 2
-text = "    >    "
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+position = Vector2(52, 48.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("16_l0p1h")
 
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Control/ColorRectCommands/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+position = Vector2(52, 18)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("17_js64i")
 
-[node name="DownButton" type="Button" parent="CanvasLayer/Control/ColorRectCommands/HBoxContainer/MarginContainer3"]
+[node name="UpButton" type="Button" parent="CanvasLayer/Control/ColorRectCommands"]
 layout_mode = 2
-text = "    \\/    "
+offset_left = 10.0
+offset_top = -17.0
+offset_right = 93.0
+offset_bottom = 43.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_v06xq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3xhup")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g60ke")
+theme_override_styles/focus = SubResource("StyleBoxFlat_stysn")
+
+[node name="ForwardButton" type="Button" parent="CanvasLayer/Control/ColorRectCommands"]
+layout_mode = 2
+offset_left = 182.0
+offset_top = -36.0
+offset_right = 278.0
+offset_bottom = 34.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_v06xq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3xhup")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g60ke")
+theme_override_styles/focus = SubResource("StyleBoxFlat_stysn")
+
+[node name="DownButton" type="Button" parent="CanvasLayer/Control/ColorRectCommands"]
+layout_mode = 2
+offset_left = 364.0
+offset_top = -19.0
+offset_right = 462.0
+offset_bottom = 45.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_v06xq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3xhup")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g60ke")
+theme_override_styles/focus = SubResource("StyleBoxFlat_stysn")
+
+[node name="Tutorial" type="Node2D" parent="CanvasLayer/Control"]
+position = Vector2(957, 57)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Tutorial"]
+modulate = Color(0.878431, 0.811765, 0.498039, 1)
+position = Vector2(-2.28882e-05, 16.5)
+scale = Vector2(3.5, 1.13)
+texture = ExtResource("1_l2jh4")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/Control/Tutorial"]
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("18_o2f55")
+hframes = 3
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Control/Tutorial"]
+z_index = -1
+position = Vector2(0, 16)
+scale = Vector2(5, 8.72)
+texture = ExtResource("18_o2f55")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Control/Tutorial"]
+z_index = -1
+position = Vector2(0, 33)
+scale = Vector2(5, 5)
+texture = ExtResource("18_o2f55")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/Tutorial"]
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0.0392157, 0.129412, 1)
+theme_override_fonts/font = ExtResource("19_j5ium")
+theme_override_font_sizes/font_size = 24
+text = "Localize yourself in the map using the surrounds, interact with the submarine commands with LEFT CLICK."
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u6g6f")
 
 [connection signal="reached_end" from="Submarine" to="." method="_on_submarine_reached_end"]
 [connection signal="area_entered" from="Submarine/ObstaclesDetector" to="Submarine" method="_on_obstacles_detector_area_entered"]
-[connection signal="pressed" from="CanvasLayer/Control/ColorRectCommands/HBoxContainer/MarginContainer/UpButton" to="Commands" method="_on_up_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/ColorRectCommands/HBoxContainer/MarginContainer2/ForwardButton" to="Commands" method="_on_forward_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/ColorRectCommands/HBoxContainer/MarginContainer3/DownButton" to="Commands" method="_on_down_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ColorRectCommands/UpButton" to="Commands" method="_on_up_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ColorRectCommands/ForwardButton" to="Commands" method="_on_forward_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ColorRectCommands/DownButton" to="Commands" method="_on_down_button_pressed"]

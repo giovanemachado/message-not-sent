@@ -20,7 +20,8 @@ extends Node2D
 @onready var radar_level_5 = $CanvasLayer/Control/ColorRectRadar/Radar5
 
 @onready var commands = $Commands
-
+@onready var tutorial = $CanvasLayer/Control/Tutorial
+@onready var animation_player = $Environment/Obstacles/AreasLevel5/AnimationPlayer
 var current_level = 0
 
 func _ready():
@@ -34,8 +35,11 @@ func _ready():
 func set_height_and_mark():
 	# heights 0 bottom, 1 middle, 2 top
 	if current_level == 1:
+		tutorial.show()
 		commands.current_height = 1
 		start_mark.position = start_mark_1.position
+	else:
+		tutorial.hide()
 		
 	if current_level == 2:
 		commands.current_height = 0
@@ -52,11 +56,7 @@ func set_height_and_mark():
 	if current_level == 5:
 		commands.current_height = 1
 		start_mark.position = start_mark_1.position
-	
-#	print(" --------- level info --------- ")
-#	print(current_level)
-#	print(commands.current_height)
-	
+
 
 func show_level():
 	if current_level == 1:
@@ -100,6 +100,8 @@ func _on_submarine_reached_end():
 	
 	if Globals.current_level > 5:
 		Globals.current_level = 0
+		animation_player.play("m")
+		await animation_player.animation_finished
 		SceneLoader.scene_transition(Globals.SCENES.GAME_OVER)
 	else:
 		SceneLoader.scene_transition(Globals.SCENES.EMERGE)

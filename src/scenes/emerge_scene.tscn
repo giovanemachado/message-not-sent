@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ci7bq8dim3vtv"]
+[gd_scene load_steps=31 format=3 uid="uid://ci7bq8dim3vtv"]
 
 [ext_resource type="Texture2D" uid="uid://cwnoomfrd8au8" path="res://src/art/clouds.png" id="1_eq0ir"]
 [ext_resource type="Script" path="res://src/emerge/effects/ParallaxBackground.gd" id="1_nsmkd"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://da1oodt0qlt7l" path="res://src/art/contact1_in_chat.png" id="13_60u7w"]
 [ext_resource type="Texture2D" uid="uid://msn3na8fecql" path="res://src/art/contact2_in_chat.png" id="16_6h7ye"]
 [ext_resource type="Texture2D" uid="uid://ttf3rmk21m2u" path="res://src/art/button.png" id="17_c51jx"]
+[ext_resource type="Texture2D" uid="uid://dtyjk8a4obthv" path="res://src/art/support.png" id="17_u46ey"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2kgt"]
 bg_color = Color(1, 1, 1, 0)
@@ -70,6 +71,15 @@ _data = {
 [sub_resource type="Theme" id="Theme_24380"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4vkp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5annu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jub7g"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3va06"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Emerge" type="Node2D"]
@@ -520,13 +530,6 @@ theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 32
 text = "daughter"
 
-[node name="Label" type="Label" parent="Gameplay/Phone/Message/DaughterLevel2"]
-offset_left = 92.0
-offset_top = -246.0
-offset_right = 132.0
-offset_bottom = -220.0
-text = "2"
-
 [node name="DaughterLevel2_Sent" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
 
@@ -605,7 +608,7 @@ text = "good morning daughter. I'm going to make my last delivery today. I'll se
 autowrap_mode = 2
 
 [node name="ChatBox2" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel2_Sent"]
-position = Vector2(13, 66)
+position = Vector2(13, 72)
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel2_Sent/ChatBox2"]
 z_index = -1
@@ -655,40 +658,37 @@ theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 32
 text = "daughter"
 
-[node name="Label" type="Label" parent="Gameplay/Phone/Message/DaughterLevel2_Sent"]
-offset_left = 92.0
-offset_top = -246.0
-offset_right = 132.0
-offset_bottom = -220.0
-text = "2"
-
 [node name="DaughterLevel3" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
 
-[node name="ChatBoxWhite" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel3"]
-position = Vector2(-12, -138)
+[node name="ChatBoxWhite2" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel3"]
+position = Vector2(-13, -29)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBoxWhite"]
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBoxWhite2"]
 modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
 scale = Vector2(5, 5)
 texture = ExtResource("11_recah")
 hframes = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBoxWhite"]
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBoxWhite2"]
 modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
 scale = Vector2(5, 5)
 texture = ExtResource("11_recah")
 hframes = 3
 frame = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBoxWhite"]
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBoxWhite2"]
 modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
 scale = Vector2(5, 5)
 texture = ExtResource("11_recah")
 hframes = 3
 frame = 2
 
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBoxWhite"]
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBoxWhite2"]
+z_index = -1
 offset_left = -168.0
 offset_top = -34.0
 offset_right = 167.0
@@ -696,7 +696,79 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "wanna know, nvm, you can forget me."
+text = "ok."
+autowrap_mode = 2
+
+[node name="ChatBox" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel3"]
+position = Vector2(13, -138)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBox"]
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBox"]
+z_index = -1
+scale = Vector2(5, 6.2)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBox"]
+z_index = -1
+position = Vector2(0, 6)
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBox"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "good morning daughter. I'm going to make my last delivery today. I'll see you tomorrow."
+autowrap_mode = 2
+
+[node name="ChatBox2" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel3"]
+position = Vector2(13, 72)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBox2"]
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBox2"]
+z_index = -1
+scale = Vector2(5, 6.2)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBox2"]
+z_index = -1
+position = Vector2(0, 6)
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3/ChatBox2"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "I didn't have a phone these last days, that’s why I didn't send anything before."
 autowrap_mode = 2
 
 [node name="Photo" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3"]
@@ -714,40 +786,37 @@ theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 32
 text = "daughter"
 
-[node name="Label" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3"]
-offset_left = 92.0
-offset_top = -246.0
-offset_right = 132.0
-offset_bottom = -220.0
-text = "3"
-
 [node name="DaughterLevel3_Sent" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
 
-[node name="ChatBoxWhite" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent"]
-position = Vector2(-12, -138)
+[node name="ChatBoxWhite2" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent"]
+position = Vector2(-13, -138)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBoxWhite"]
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBoxWhite2"]
 modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
 scale = Vector2(5, 5)
 texture = ExtResource("11_recah")
 hframes = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBoxWhite"]
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBoxWhite2"]
 modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
 scale = Vector2(5, 5)
 texture = ExtResource("11_recah")
 hframes = 3
 frame = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBoxWhite"]
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBoxWhite2"]
 modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
 scale = Vector2(5, 5)
 texture = ExtResource("11_recah")
 hframes = 3
 frame = 2
 
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBoxWhite"]
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBoxWhite2"]
+z_index = -1
 offset_left = -168.0
 offset_top = -34.0
 offset_right = 167.0
@@ -755,31 +824,35 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "wanna know, nvm, you can forget me."
+text = "ok."
 autowrap_mode = 2
 
-[node name="ChatBox" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent"]
-position = Vector2(14, -32)
+[node name="ChatBox2" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent"]
+position = Vector2(13, -37)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox"]
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox2"]
+z_index = -1
 scale = Vector2(5, 5)
 texture = ExtResource("12_3v61x")
 hframes = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox"]
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox2"]
+z_index = -1
 scale = Vector2(5, 6.2)
 texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox"]
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox2"]
+z_index = -1
 position = Vector2(0, 6)
 scale = Vector2(5, 5)
 texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 2
 
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox"]
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox2"]
+z_index = -1
 offset_left = -168.0
 offset_top = -34.0
 offset_right = 167.0
@@ -787,7 +860,43 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "good morning daughter. I'm going to make my last delivery today. I'll see you tomorrow."
+text = "I didn't have a phone these last days, that’s why I didn't send anything before."
+autowrap_mode = 2
+
+[node name="ChatBox3" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent"]
+position = Vector2(13, 68)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox3"]
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox3"]
+z_index = -1
+scale = Vector2(5, 6.2)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox3"]
+z_index = -1
+position = Vector2(0, 6)
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3_Sent/ChatBox3"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "how is school? are you still the best? I remember you were"
 autowrap_mode = 2
 
 [node name="Photo" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel3_Sent"]
@@ -805,40 +914,35 @@ theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 32
 text = "daughter"
 
-[node name="Label" type="Label" parent="Gameplay/Phone/Message/DaughterLevel3_Sent"]
-offset_left = 92.0
-offset_top = -246.0
-offset_right = 132.0
-offset_bottom = -220.0
-text = "3"
-
 [node name="DaughterLevel4" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
 
-[node name="ChatBoxWhite" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel4"]
-position = Vector2(-12, -138)
+[node name="ChatBox2" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel4"]
+position = Vector2(13, -169)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBox2"]
+z_index = -1
 scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
+texture = ExtResource("12_3v61x")
 hframes = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBox2"]
+z_index = -1
+scale = Vector2(5, 6.2)
+texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBox2"]
+z_index = -1
+position = Vector2(0, 6)
 scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
+texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 2
 
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBoxWhite"]
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBox2"]
+z_index = -1
 offset_left = -168.0
 offset_top = -34.0
 offset_right = 167.0
@@ -846,7 +950,81 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "wanna know, nvm, you can forget me."
+text = "I didn't have a phone these last days, that’s why I didn't send anything before."
+autowrap_mode = 2
+
+[node name="ChatBox3" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel4"]
+position = Vector2(13, -64)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBox3"]
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBox3"]
+z_index = -1
+scale = Vector2(5, 6.2)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBox3"]
+z_index = -1
+position = Vector2(0, 6)
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBox3"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "how is school? are you still the best? I remember you were"
+autowrap_mode = 2
+
+[node name="ChatBoxWhite2" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel4"]
+position = Vector2(-13, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4/ChatBoxWhite2"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "it's been 3 years since I left, you would know if you were here."
 autowrap_mode = 2
 
 [node name="Photo" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4"]
@@ -864,72 +1042,35 @@ theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 32
 text = "daughter"
 
-[node name="Label" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4"]
-offset_left = 92.0
-offset_top = -246.0
-offset_right = 132.0
-offset_bottom = -220.0
-text = "4"
-
 [node name="DaughterLevel4_Sent" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
 
-[node name="ChatBoxWhite" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent"]
-position = Vector2(-12, -138)
+[node name="ChatBox3" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent"]
+position = Vector2(14, -176)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
-hframes = 3
-
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
-hframes = 3
-frame = 1
-
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
-hframes = 3
-frame = 2
-
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBoxWhite"]
-offset_left = -168.0
-offset_top = -34.0
-offset_right = 167.0
-offset_bottom = 35.0
-theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
-theme_override_fonts/font = ExtResource("10_xuu8d")
-theme_override_font_sizes/font_size = 24
-text = "wanna know, nvm, you can forget me."
-autowrap_mode = 2
-
-[node name="ChatBox" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent"]
-position = Vector2(14, -32)
-
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox"]
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox3"]
+z_index = -1
 scale = Vector2(5, 5)
 texture = ExtResource("12_3v61x")
 hframes = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox"]
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox3"]
+z_index = -1
 scale = Vector2(5, 6.2)
 texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox"]
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox3"]
+z_index = -1
 position = Vector2(0, 6)
 scale = Vector2(5, 5)
 texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 2
 
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox"]
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox3"]
+z_index = -1
 offset_left = -168.0
 offset_top = -34.0
 offset_right = 167.0
@@ -937,7 +1078,81 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "good morning daughter. I'm going to make my last delivery today. I'll see you tomorrow."
+text = "how is school? are you still the best? I remember you were"
+autowrap_mode = 2
+
+[node name="ChatBox4" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent"]
+position = Vector2(14, 29)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox4"]
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox4"]
+z_index = -1
+scale = Vector2(5, 6.2)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox4"]
+z_index = -1
+position = Vector2(0, 6)
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBox4"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "This job paid well, I'll come back this weekend and we can talk"
+autowrap_mode = 2
+
+[node name="ChatBoxWhite2" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent"]
+position = Vector2(-12, -70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4_Sent/ChatBoxWhite2"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "it's been 3 years since I left, you would know if you were here."
 autowrap_mode = 2
 
 [node name="Photo" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel4_Sent"]
@@ -955,40 +1170,35 @@ theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 32
 text = "daughter"
 
-[node name="Label" type="Label" parent="Gameplay/Phone/Message/DaughterLevel4_Sent"]
-offset_left = 92.0
-offset_top = -246.0
-offset_right = 132.0
-offset_bottom = -220.0
-text = "4"
-
 [node name="DaughterLevel5" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
 
-[node name="ChatBoxWhite" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5"]
-position = Vector2(-12, -138)
+[node name="ChatBox4" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5"]
+position = Vector2(14, -79)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBox4"]
+z_index = -1
 scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
+texture = ExtResource("12_3v61x")
 hframes = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBox4"]
+z_index = -1
+scale = Vector2(5, 6.2)
+texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBox4"]
+z_index = -1
+position = Vector2(0, 6)
 scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
+texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 2
 
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite"]
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBox4"]
+z_index = -1
 offset_left = -168.0
 offset_top = -34.0
 offset_right = 167.0
@@ -996,7 +1206,85 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "wanna know, nvm, you can forget me."
+text = "This job paid well, I'll come back this weekend and we can talk"
+autowrap_mode = 2
+
+[node name="ChatBoxWhite2" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5"]
+position = Vector2(-12, -178)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite2"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "it's been 3 years since I left, you would know if you were here."
+autowrap_mode = 2
+
+[node name="ChatBoxWhite3" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5"]
+position = Vector2(-13, 26)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite3"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+position = Vector2(0, -4)
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite3"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5.76)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite3"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+position = Vector2(0, 3)
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5/ChatBoxWhite3"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "I'll give you this chance. If you'll be here this time. You are gonna be grandfather."
 autowrap_mode = 2
 
 [node name="Photo" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5"]
@@ -1014,72 +1302,35 @@ theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 32
 text = "daughter"
 
-[node name="Label" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5"]
-offset_left = 92.0
-offset_top = -246.0
-offset_right = 132.0
-offset_bottom = -220.0
-text = "5"
-
 [node name="DaughterLevel5_Sent" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
 
-[node name="ChatBoxWhite" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent"]
-position = Vector2(-12, -138)
+[node name="ChatBox4" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent"]
+position = Vector2(14, -185)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
-hframes = 3
-
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
-hframes = 3
-frame = 1
-
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBoxWhite"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
-hframes = 3
-frame = 2
-
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBoxWhite"]
-offset_left = -168.0
-offset_top = -34.0
-offset_right = 167.0
-offset_bottom = 35.0
-theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
-theme_override_fonts/font = ExtResource("10_xuu8d")
-theme_override_font_sizes/font_size = 24
-text = "wanna know, nvm, you can forget me."
-autowrap_mode = 2
-
-[node name="ChatBox" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent"]
-position = Vector2(14, -32)
-
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox"]
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox4"]
+z_index = -1
 scale = Vector2(5, 5)
 texture = ExtResource("12_3v61x")
 hframes = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox"]
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox4"]
+z_index = -1
 scale = Vector2(5, 6.2)
 texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox"]
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox4"]
+z_index = -1
 position = Vector2(0, 6)
 scale = Vector2(5, 5)
 texture = ExtResource("12_3v61x")
 hframes = 3
 frame = 2
 
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox"]
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox4"]
+z_index = -1
 offset_left = -168.0
 offset_top = -34.0
 offset_right = 167.0
@@ -1087,7 +1338,128 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "good morning daughter. I'm going to make my last delivery today. I'll see you tomorrow."
+text = "This job paid well, I'll come back this weekend and we can talk"
+autowrap_mode = 2
+
+[node name="ChatBox5" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent"]
+position = Vector2(14, 23)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox5"]
+modulate = Color(1, 1, 1, 0.478431)
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox5"]
+modulate = Color(1, 1, 1, 0.478431)
+z_index = -1
+position = Vector2(0, 6)
+scale = Vector2(5, 6)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox5"]
+modulate = Color(1, 1, 1, 0.478431)
+z_index = -1
+position = Vector2(0, 12)
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox5"]
+z_index = -1
+position = Vector2(-1, 90.8)
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+
+[node name="Sprite2D5" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox5"]
+z_index = -1
+position = Vector2(-1, 69.8)
+scale = Vector2(5, 2.32)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D6" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox5"]
+z_index = -1
+position = Vector2(-1, 41.8)
+scale = Vector2(5, 5.2)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 2
+
+[node name="Sprite2D7" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox5"]
+modulate = Color(0.671875, 0.195313, 0.195313, 1)
+position = Vector2(-0.999939, 67.3)
+scale = Vector2(3.5, 0.33)
+texture = ExtResource("2_g5j0h")
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox5"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "my god, this is blessing, I love you so much, how amazing I will be! I'll be back to see you!!"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBox5"]
+z_index = 1
+offset_left = -167.0
+offset_top = 54.8
+offset_right = 167.0
+offset_bottom = 97.8
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "ERROR MESSAGE NOT SENT: 500"
+autowrap_mode = 2
+
+[node name="ChatBoxWhite3" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent"]
+position = Vector2(-13, -80)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBoxWhite3"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+position = Vector2(0, -4)
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBoxWhite3"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+scale = Vector2(5, 5.76)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBoxWhite3"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+z_index = -1
+position = Vector2(0, 3)
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5_Sent/ChatBoxWhite3"]
+z_index = -1
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "I'll give you this chance. If you'll be here this time. You are gonna be grandfather."
 autowrap_mode = 2
 
 [node name="Photo" type="Sprite2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent"]
@@ -1104,13 +1476,6 @@ theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 32
 text = "daughter"
-
-[node name="Label" type="Label" parent="Gameplay/Phone/Message/DaughterLevel5_Sent"]
-offset_left = 92.0
-offset_top = -246.0
-offset_right = 132.0
-offset_bottom = -220.0
-text = "5"
 
 [node name="BossLevel1" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
@@ -1148,7 +1513,43 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "hey folk, delivery this super safe uraniun cargo and you are good to go to your vacation. thanks for these 4 years working 24/7, you are the best"
+text = "hey folk, your last job is take this docs to our CTO and you are good to go for your vacation. thanks for these 4 years working 24/7, you are the best"
+autowrap_mode = 2
+
+[node name="ChatBoxWhite2" type="Node2D" parent="Gameplay/Phone/Message/BossLevel1"]
+position = Vector2(-12, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel1/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel1/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(0, 23)
+scale = Vector2(5, 8.92)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel1/ChatBoxWhite2"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(0, 47)
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/BossLevel1/ChatBoxWhite2"]
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "oh I made some maps for you this time, take a look and please don't smash my submarine on the rocks"
 autowrap_mode = 2
 
 [node name="Photo" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel1"]
@@ -1169,32 +1570,32 @@ text = "boss"
 [node name="BossLevel3" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
 
-[node name="ChatBoxWhite" type="Node2D" parent="Gameplay/Phone/Message/BossLevel3"]
-position = Vector2(-12, -138)
+[node name="ChatBoxWhite2" type="Node2D" parent="Gameplay/Phone/Message/BossLevel3"]
+position = Vector2(-12, -143)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite"]
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite2"]
 modulate = Color(0.431373, 0.431373, 0.431373, 1)
 scale = Vector2(5, 5)
 texture = ExtResource("11_recah")
 hframes = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite"]
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite2"]
 modulate = Color(0.431373, 0.431373, 0.431373, 1)
-position = Vector2(0, 29)
-scale = Vector2(5, 10.24)
+position = Vector2(0, 23)
+scale = Vector2(5, 8.92)
 texture = ExtResource("11_recah")
 hframes = 3
 frame = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite"]
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite2"]
 modulate = Color(0.431373, 0.431373, 0.431373, 1)
-position = Vector2(0, 60)
+position = Vector2(0, 46)
 scale = Vector2(5, 5)
 texture = ExtResource("11_recah")
 hframes = 3
 frame = 2
 
-[node name="Label2" type="Label" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite"]
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite2"]
 offset_left = -168.0
 offset_top = -34.0
 offset_right = 167.0
@@ -1202,11 +1603,46 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "hey folk, delivery this super safe uraniun cargo and you are good to go to your vacation. thanks for these 4 years working 24/7, you are the best"
+text = "oh I made some maps for you this time, take a look and please don't smash my submarine on the rocks"
+autowrap_mode = 2
+
+[node name="ChatBoxWhite3" type="Node2D" parent="Gameplay/Phone/Message/BossLevel3"]
+position = Vector2(-12, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite3"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite3"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(0, 23)
+scale = Vector2(5, 8.92)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite3"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(0, 46)
+scale = Vector2(5, 5)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Message/BossLevel3/ChatBoxWhite3"]
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "haha there is an underwater mine camp on your way, nothing you can't handle, right ..? keep the right mindset man"
 autowrap_mode = 2
 
 [node name="Photo" type="Sprite2D" parent="Gameplay/Phone/Message/BossLevel3"]
-z_index = 1
 position = Vector2(-101, -238)
 scale = Vector2(5, 5)
 texture = ExtResource("16_6h7ye")
@@ -1220,13 +1656,6 @@ theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 32
 text = "boss"
-
-[node name="Label" type="Label" parent="Gameplay/Phone/Message/BossLevel3"]
-offset_left = 92.0
-offset_top = -246.0
-offset_right = 132.0
-offset_bottom = -220.0
-text = "3"
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message"]
 modulate = Color(0.0273438, 0.253906, 0.328125, 1)
@@ -1247,20 +1676,71 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e4vkp")
 text = "<"
 
+[node name="Tutorial" type="Node2D" parent="Gameplay/Phone"]
+position = Vector2(350, -281)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Tutorial"]
+modulate = Color(0.878431, 0.811765, 0.498039, 1)
+position = Vector2(-2.28882e-05, 2.99999)
+scale = Vector2(3.5, 0.86)
+texture = ExtResource("2_g5j0h")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Gameplay/Phone/Tutorial"]
+z_index = -1
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+
+[node name="Sprite2D6" type="Sprite2D" parent="Gameplay/Phone/Tutorial"]
+z_index = -1
+scale = Vector2(5, 6.2)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D7" type="Sprite2D" parent="Gameplay/Phone/Tutorial"]
+z_index = -1
+position = Vector2(0, 6)
+scale = Vector2(5, 5)
+texture = ExtResource("12_3v61x")
+hframes = 3
+frame = 2
+
+[node name="Label2" type="Label" parent="Gameplay/Phone/Tutorial"]
+offset_left = -168.0
+offset_top = -34.0
+offset_right = 167.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0.0392157, 0.129412, 1)
+theme_override_fonts/font = ExtResource("10_xuu8d")
+theme_override_font_sizes/font_size = 24
+text = "Interact with the messages, then dive! Use the LEFT CLICK to interact!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="Commands" type="Node2D" parent="Gameplay"]
+visible = false
 position = Vector2(1082, 586)
 
-[node name="SubmergeButtonSprite2D" type="Sprite2D" parent="Gameplay/Commands"]
+[node name="SubmergeButtonSprite2D2" type="Sprite2D" parent="Gameplay/Commands"]
 position = Vector2(-39, -20)
+scale = Vector2(5, 5)
+texture = ExtResource("17_u46ey")
+
+[node name="SubmergeButtonSprite2D" type="Sprite2D" parent="Gameplay/Commands"]
+position = Vector2(-39, -74)
 scale = Vector2(5, 5)
 texture = ExtResource("17_c51jx")
 
 [node name="SubmergeButton" type="Button" parent="Gameplay/Commands"]
 offset_left = -125.0
-offset_top = -85.0
+offset_top = -139.0
 offset_right = 48.0
-offset_bottom = 31.0
+offset_bottom = -23.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5annu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jub7g")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3va06")
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 
