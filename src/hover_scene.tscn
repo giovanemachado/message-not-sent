@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://du2vt5aupvoe8"]
+
+[ext_resource type="Script" path="res://src/Hover.gd" id="1_joan7"]
+
+[node name="Hover" type="Node2D"]
+script = ExtResource("1_joan7")

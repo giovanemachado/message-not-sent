@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ci7bq8dim3vtv"]
+[gd_scene load_steps=40 format=3 uid="uid://ci7bq8dim3vtv"]
 
 [ext_resource type="Texture2D" uid="uid://cwnoomfrd8au8" path="res://src/art/clouds.png" id="1_eq0ir"]
 [ext_resource type="Script" path="res://src/emerge/effects/ParallaxBackground.gd" id="1_nsmkd"]
@@ -15,13 +15,23 @@
 [ext_resource type="Texture2D" uid="uid://c5d1n78imecdl" path="res://src/art/chat_box_white.png" id="11_recah"]
 [ext_resource type="Texture2D" uid="uid://c5oq2ks3oxl0k" path="res://src/art/chat_box.png" id="12_3v61x"]
 [ext_resource type="Texture2D" uid="uid://da1oodt0qlt7l" path="res://src/art/contact1_in_chat.png" id="13_60u7w"]
+[ext_resource type="Texture2D" uid="uid://e5wq3dhw4xo4" path="res://src/art/forward.png" id="14_b75it"]
 [ext_resource type="Texture2D" uid="uid://msn3na8fecql" path="res://src/art/contact2_in_chat.png" id="16_6h7ye"]
 [ext_resource type="Texture2D" uid="uid://ttf3rmk21m2u" path="res://src/art/button.png" id="17_c51jx"]
 [ext_resource type="Texture2D" uid="uid://dtyjk8a4obthv" path="res://src/art/support.png" id="17_u46ey"]
+[ext_resource type="Texture2D" uid="uid://dagin3lh7ioyo" path="res://src/art/back.png" id="18_1jxyo"]
+[ext_resource type="PackedScene" uid="uid://du2vt5aupvoe8" path="res://src/hover_scene.tscn" id="19_77wc7"]
+[ext_resource type="Texture2D" uid="uid://oexmk613bpr7" path="res://src/art/up.png" id="22_g5aok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k543w"]
+size = Vector2(66, 14)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpjjm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwgfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwocy"]
+size = Vector2(67.8, 13.8)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yygrr"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -65,13 +75,25 @@ _data = {
 
 [sub_resource type="Theme" id="Theme_24380"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwown"]
+size = Vector2(55.8, 18.4)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf8ss"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8s3t"]
+size = Vector2(57, 52)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brbpd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gd0wn"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6lpe"]
+size = Vector2(10.8, 8.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kdh8"]
+size = Vector2(33.2, 19)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3va06"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -150,6 +172,15 @@ position = Vector2(1.00006, 158)
 scale = Vector2(5, 5)
 texture = ExtResource("8_jcgp2")
 
+[node name="Hover" parent="Gameplay/Phone/Contacts/Contact1/ContactSprite2D" instance=ExtResource("19_77wc7")]
+
+[node name="Area2D" type="Area2D" parent="Gameplay/Phone/Contacts/Contact1/ContactSprite2D/Hover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Contacts/Contact1/ContactSprite2D/Hover/Area2D"]
+position = Vector2(0.599983, -0.200001)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_k543w")
+
 [node name="Contact1Button" type="Button" parent="Gameplay/Phone/Contacts/Contact1"]
 offset_left = -175.0
 offset_top = 115.0
@@ -177,6 +208,15 @@ position = Vector2(1, -62)
 position = Vector2(1.00005, 40.5)
 scale = Vector2(5, 5)
 texture = ExtResource("9_25yjq")
+
+[node name="Hover" parent="Gameplay/Phone/Contacts/Contact2/ContactSprite2D" instance=ExtResource("19_77wc7")]
+
+[node name="Area2D" type="Area2D" parent="Gameplay/Phone/Contacts/Contact2/ContactSprite2D/Hover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Contacts/Contact2/ContactSprite2D/Hover/Area2D"]
+position = Vector2(-0.300011, -0.199997)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mwocy")
 
 [node name="Contact2Button" type="Button" parent="Gameplay/Phone/Contacts/Contact2"]
 offset_left = -176.0
@@ -214,32 +254,10 @@ libraries = {
 [node name="WriteBox" type="Node2D" parent="Gameplay/Phone/Message"]
 position = Vector2(0, 255)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/WriteBox"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-position = Vector2(0, -54)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
-hframes = 3
-
-[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/WriteBox"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-position = Vector2(0, -28)
-scale = Vector2(5, 9.72)
-texture = ExtResource("11_recah")
-hframes = 3
-frame = 1
-
-[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/WriteBox"]
-modulate = Color(0.431373, 0.431373, 0.431373, 1)
-scale = Vector2(5, 5)
-texture = ExtResource("11_recah")
-hframes = 3
-frame = 2
-
 [node name="WriteLabel" type="Label" parent="Gameplay/Phone/Message/WriteBox"]
-offset_left = -171.0
-offset_top = -90.0
-offset_right = 120.0
+offset_left = -166.0
+offset_top = -66.0
+offset_right = 128.0
 offset_bottom = 38.0
 theme = SubResource("Theme_24380")
 theme_override_colors/font_color = Color(0.675781, 0.808594, 0.996094, 1)
@@ -250,17 +268,70 @@ clip_text = true
 visible_characters = 0
 visible_ratio = 0.0
 
+[node name="Sprite2D4" type="Sprite2D" parent="Gameplay/Phone/Message/WriteBox"]
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/WriteBox/Sprite2D4"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(0.799995, -6.19999)
+texture = ExtResource("11_recah")
+hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/WriteBox/Sprite2D4"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(0.799995, -3.6)
+scale = Vector2(1, 1.56)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gameplay/Phone/Message/WriteBox/Sprite2D4"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(0.799995, -0.599998)
+texture = ExtResource("11_recah")
+hframes = 3
+frame = 2
+
+[node name="Hover" parent="Gameplay/Phone/Message/WriteBox/Sprite2D4" instance=ExtResource("19_77wc7")]
+
+[node name="Area2D" type="Area2D" parent="Gameplay/Phone/Message/WriteBox/Sprite2D4/Hover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Message/WriteBox/Sprite2D4/Hover/Area2D"]
+position = Vector2(-4.5, -3.6)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fwown")
+
 [node name="SendButton" type="Button" parent="Gameplay/Phone/Message"]
-offset_left = 125.0
-offset_top = 258.0
-offset_right = 169.0
-offset_bottom = 303.0
+offset_left = 121.0
+offset_top = 234.0
+offset_right = 180.0
+offset_bottom = 289.0
 theme_override_colors/font_color = Color(0.675781, 0.808594, 0.996094, 1)
 theme_override_fonts/font = ExtResource("8_2dcbm")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxFlat_xf8ss")
-text = ">>"
 flat = true
+
+[node name="SendButtonSprite2D" type="Sprite2D" parent="Gameplay/Phone/Message"]
+position = Vector2(140, 256)
+
+[node name="Hover" parent="Gameplay/Phone/Message/SendButtonSprite2D" instance=ExtResource("19_77wc7")]
+
+[node name="Area2D" type="Area2D" parent="Gameplay/Phone/Message/SendButtonSprite2D/Hover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Message/SendButtonSprite2D/Hover/Area2D"]
+position = Vector2(10.5, 6)
+shape = SubResource("RectangleShape2D_j8s3t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/SendButtonSprite2D"]
+position = Vector2(23, 6.5)
+scale = Vector2(5, 5)
+texture = ExtResource("14_b75it")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Message/SendButtonSprite2D"]
+position = Vector2(-1, 6.5)
+scale = Vector2(5, 5)
+texture = ExtResource("14_b75it")
 
 [node name="DaughterLevel1" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
@@ -1663,17 +1734,30 @@ scale = Vector2(3.87, 0.89)
 texture = ExtResource("2_g5j0h")
 
 [node name="ContactsButton" type="Button" parent="Gameplay/Phone/Message"]
-offset_left = -189.0
-offset_top = -257.0
-offset_right = -149.0
-offset_bottom = -212.0
+offset_left = -199.0
+offset_top = -271.0
+offset_right = -136.0
+offset_bottom = -209.0
 theme_override_colors/font_color = Color(0.675781, 0.808594, 0.996094, 1)
 theme_override_fonts/font = ExtResource("8_2dcbm")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/hover = SubResource("StyleBoxEmpty_brbpd")
 theme_override_styles/focus = SubResource("StyleBoxFlat_gd0wn")
-text = "<"
 flat = true
+
+[node name="ContactsButton2" type="Sprite2D" parent="Gameplay/Phone/Message"]
+position = Vector2(-170, -237)
+scale = Vector2(5, 5)
+texture = ExtResource("18_1jxyo")
+
+[node name="Hover" parent="Gameplay/Phone/Message/ContactsButton2" instance=ExtResource("19_77wc7")]
+
+[node name="Area2D" type="Area2D" parent="Gameplay/Phone/Message/ContactsButton2/Hover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Message/ContactsButton2/Hover/Area2D"]
+position = Vector2(0.799995, -0.799999)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_o6lpe")
 
 [node name="Tutorial" type="Node2D" parent="Gameplay/Phone"]
 position = Vector2(350, -281)
@@ -1729,6 +1813,25 @@ texture = ExtResource("17_u46ey")
 position = Vector2(-39, -74)
 scale = Vector2(5, 5)
 texture = ExtResource("17_c51jx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Commands/SubmergeButtonSprite2D"]
+position = Vector2(0.0999908, -6)
+scale = Vector2(1, -1)
+texture = ExtResource("22_g5aok")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Commands/SubmergeButtonSprite2D"]
+position = Vector2(0.0999908, -2.20001)
+scale = Vector2(1, -1)
+texture = ExtResource("22_g5aok")
+
+[node name="Hover" parent="Gameplay/Commands/SubmergeButtonSprite2D" instance=ExtResource("19_77wc7")]
+
+[node name="Area2D" type="Area2D" parent="Gameplay/Commands/SubmergeButtonSprite2D/Hover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Commands/SubmergeButtonSprite2D/Hover/Area2D"]
+position = Vector2(0.199997, -2.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2kdh8")
 
 [node name="SubmergeButton" type="Button" parent="Gameplay/Commands"]
 offset_left = -125.0

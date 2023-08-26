@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cy5i5q85piqiv"]
+[gd_scene load_steps=49 format=3 uid="uid://cy5i5q85piqiv"]
 
 [ext_resource type="Texture2D" uid="uid://d4mskpemmctm8" path="res://src/art/spike2.png" id="1_2oqxv"]
 [ext_resource type="Texture2D" uid="uid://ew6qiponq6xf" path="res://src/art/spike1.png" id="1_3qwbg"]
@@ -17,8 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://clmovas5x004p" path="res://src/art/radar5.png" id="13_qyras"]
 [ext_resource type="Texture2D" uid="uid://dtyjk8a4obthv" path="res://src/art/support.png" id="16_l0p1h"]
 [ext_resource type="Texture2D" uid="uid://cbfeo8sfskiqp" path="res://src/art/button2.png" id="17_js64i"]
+[ext_resource type="Texture2D" uid="uid://e5wq3dhw4xo4" path="res://src/art/forward.png" id="18_nd4br"]
 [ext_resource type="Texture2D" uid="uid://c5oq2ks3oxl0k" path="res://src/art/chat_box.png" id="18_o2f55"]
 [ext_resource type="FontFile" uid="uid://dcahcytb1bhbj" path="res://src/art/NicoPups-Regular.ttf" id="19_j5ium"]
+[ext_resource type="PackedScene" uid="uid://du2vt5aupvoe8" path="res://src/hover_scene.tscn" id="19_orky4"]
+[ext_resource type="Texture2D" uid="uid://oexmk613bpr7" path="res://src/art/up.png" id="20_p7xj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gsgs"]
 size = Vector2(450, 1226)
@@ -351,6 +354,15 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bj2t"]
 radius = 127.016
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycb2e"]
+size = Vector2(32, 21.2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3o7b0"]
+size = Vector2(32, 18.4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdlho"]
+size = Vector2(32.4, 22)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v06xq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -976,7 +988,7 @@ grow_vertical = 0
 size_flags_vertical = 8
 color = Color(0.25098, 0.25098, 0.25098, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+[node name="sup3" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
 position = Vector2(229.75, 32.75)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("16_l0p1h")
@@ -986,7 +998,24 @@ position = Vector2(226.75, 5.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_js64i")
 
-[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D2"]
+position = Vector2(2.2, -4.3)
+texture = ExtResource("18_nd4br")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D2"]
+position = Vector2(-2.10001, -4.3)
+texture = ExtResource("18_nd4br")
+
+[node name="Hover" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D2" instance=ExtResource("19_orky4")]
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D2/Hover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D2/Hover/Area2D"]
+position = Vector2(0.5, -3.2)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ycb2e")
+
+[node name="sup2" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
 position = Vector2(411, 48.25)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("16_l0p1h")
@@ -996,7 +1025,26 @@ position = Vector2(412, 16)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_js64i")
 
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D6"]
+position = Vector2(-0.100006, -6.60001)
+scale = Vector2(1, 1)
+texture = ExtResource("20_p7xj4")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D6"]
+position = Vector2(-0.100006, -2.5)
+scale = Vector2(1, 1)
+texture = ExtResource("20_p7xj4")
+
+[node name="Hover" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D6" instance=ExtResource("19_orky4")]
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D6/Hover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D6/Hover/Area2D"]
+position = Vector2(0.399994, -4.39999)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3o7b0")
+
+[node name="sup" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
 position = Vector2(52, 48.25)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("16_l0p1h")
@@ -1005,6 +1053,25 @@ texture = ExtResource("16_l0p1h")
 position = Vector2(52, 18)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_js64i")
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D4"]
+position = Vector2(-0.0999908, -7.8)
+scale = Vector2(1, -1)
+texture = ExtResource("20_p7xj4")
+
+[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D4"]
+position = Vector2(-0.0999908, -3.7)
+scale = Vector2(1, -1)
+texture = ExtResource("20_p7xj4")
+
+[node name="Hover" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D4" instance=ExtResource("19_orky4")]
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D4/Hover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D4/Hover/Area2D"]
+position = Vector2(0.199997, -3)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tdlho")
 
 [node name="UpButton" type="Button" parent="CanvasLayer/Control/ColorRectCommands"]
 layout_mode = 2
