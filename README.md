@@ -1,3 +1,4 @@
-# project-b
+# message-not-sent
 
-Repo for my submission to https://itch.io/jam/brackeys-10
+Repo for my submission to Game Jam: Brackeys 2023
+https://giovanemachado.itch.io/message-not-sent
