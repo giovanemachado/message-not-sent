@@ -18,7 +18,6 @@ var subm_destroyed1_sound = preload("res://src/Audio Assets/Sub_/SUB DESTROYED V
 var subm_destroyed_by_bomb_sound = preload("res://src/Audio Assets/Sub_/Sub Explode 1.wav")
 var subm_destroyed_by_bomb_sound2 = preload("res://src/Audio Assets/Sub_/Sub Explode 2.wav")
 
-
 var sub_screeching1_sound = preload("res://src/Audio Assets/Sub_/Screeches/Sub screeching 1 .wav")
 var sub_screeching2_sound = preload("res://src/Audio Assets/Sub_/Screeches/Sub screeching 2.wav")
 var sub_screeching3_sound = preload("res://src/Audio Assets/Sub_/Screeches/Sub screeching 3.wav")

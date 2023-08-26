@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ci7bq8dim3vtv"]
+[gd_scene load_steps=46 format=3 uid="uid://ci7bq8dim3vtv"]
 
 [ext_resource type="Texture2D" uid="uid://cwnoomfrd8au8" path="res://src/art/clouds.png" id="1_eq0ir"]
 [ext_resource type="Script" path="res://src/emerge/effects/ParallaxBackground.gd" id="1_nsmkd"]
@@ -6,14 +6,17 @@
 [ext_resource type="Script" path="res://src/emerge/EmergeGameplay.gd" id="2_glhhq"]
 [ext_resource type="Texture2D" uid="uid://uxp8770j4yj" path="res://src/art/ocean.png" id="3_6bkye"]
 [ext_resource type="Script" path="res://src/emerge/MessagesTracking.gd" id="3_86nip"]
+[ext_resource type="Texture2D" uid="uid://byucnsy65pjdw" path="res://src/art/sub.png" id="4_phfa1"]
 [ext_resource type="Texture2D" uid="uid://1o5ugiweo816" path="res://src/art/phone.png" id="4_q2gt1"]
 [ext_resource type="Texture2D" uid="uid://0sn05ehlharo" path="res://src/art/phone2.png" id="5_aq4t8"]
+[ext_resource type="Texture2D" uid="uid://d1jcqfkf6hqev" path="res://src/art/char.png" id="5_yusb2"]
 [ext_resource type="FontFile" uid="uid://bee1l83x0vdca" path="res://src/art/NicoBold-Regular.ttf" id="8_2dcbm"]
 [ext_resource type="Texture2D" uid="uid://cxn3fo3og063o" path="res://src/art/contact1.png" id="8_jcgp2"]
 [ext_resource type="Texture2D" uid="uid://7s5lh6k0wcxf" path="res://src/art/contact2.png" id="9_25yjq"]
 [ext_resource type="FontFile" uid="uid://dcahcytb1bhbj" path="res://src/art/NicoPups-Regular.ttf" id="10_xuu8d"]
 [ext_resource type="Texture2D" uid="uid://c5d1n78imecdl" path="res://src/art/chat_box_white.png" id="11_recah"]
 [ext_resource type="Texture2D" uid="uid://c5oq2ks3oxl0k" path="res://src/art/chat_box.png" id="12_3v61x"]
+[ext_resource type="Texture2D" uid="uid://bbqu48f3rve50" path="res://src/art/notification.png" id="12_vk6bj"]
 [ext_resource type="Texture2D" uid="uid://da1oodt0qlt7l" path="res://src/art/contact1_in_chat.png" id="13_60u7w"]
 [ext_resource type="Texture2D" uid="uid://e5wq3dhw4xo4" path="res://src/art/forward.png" id="14_b75it"]
 [ext_resource type="Texture2D" uid="uid://msn3na8fecql" path="res://src/art/contact2_in_chat.png" id="16_6h7ye"]
@@ -22,6 +25,68 @@
 [ext_resource type="Texture2D" uid="uid://dagin3lh7ioyo" path="res://src/art/back.png" id="18_1jxyo"]
 [ext_resource type="PackedScene" uid="uid://du2vt5aupvoe8" path="res://src/hover_scene.tscn" id="19_77wc7"]
 [ext_resource type="Texture2D" uid="uid://oexmk613bpr7" path="res://src/art/up.png" id="22_g5aok"]
+
+[sub_resource type="Animation" id="Animation_r8qbv"]
+resource_name = "d"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(89, 589), Vector2(89, 599)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.15444, 2.60856),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_dda04"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(89, 589)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsc4f"]
+_data = {
+"RESET": SubResource("Animation_dda04"),
+"d": SubResource("Animation_r8qbv")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k543w"]
 size = Vector2(66, 14)
@@ -131,6 +196,22 @@ position = Vector2(576, 484)
 scale = Vector2(1, 5.16)
 texture = ExtResource("3_6bkye")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Environment"]
+position = Vector2(89, 589)
+scale = Vector2(5, 5)
+texture = ExtResource("4_phfa1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Sprite2D2"]
+position = Vector2(23.2, -15.6767)
+texture = ExtResource("5_yusb2")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment"]
+autoplay = "d"
+libraries = {
+"": SubResource("AnimationLibrary_rsc4f")
+}
+
 [node name="Gameplay" type="Node2D" parent="."]
 script = ExtResource("2_glhhq")
 
@@ -152,7 +233,6 @@ scale = Vector2(5, -5)
 texture = ExtResource("5_aq4t8")
 
 [node name="Contacts" type="Node2D" parent="Gameplay/Phone"]
-visible = false
 
 [node name="Label" type="Label" parent="Gameplay/Phone/Contacts"]
 offset_left = -175.0
@@ -171,6 +251,11 @@ position = Vector2(1, -289)
 position = Vector2(1.00006, 158)
 scale = Vector2(5, 5)
 texture = ExtResource("8_jcgp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Contacts/Contact1/ContactSprite2D"]
+position = Vector2(33.2, -7.2)
+scale = Vector2(1, 1)
+texture = ExtResource("12_vk6bj")
 
 [node name="Hover" parent="Gameplay/Phone/Contacts/Contact1/ContactSprite2D" instance=ExtResource("19_77wc7")]
 
@@ -207,6 +292,11 @@ position = Vector2(1, -62)
 position = Vector2(1.00005, 40.5)
 scale = Vector2(5, 5)
 texture = ExtResource("9_25yjq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Contacts/Contact2/ContactSprite2D"]
+position = Vector2(33.2, -6.5)
+scale = Vector2(1, 1)
+texture = ExtResource("12_vk6bj")
 
 [node name="Hover" parent="Gameplay/Phone/Contacts/Contact2/ContactSprite2D" instance=ExtResource("19_77wc7")]
 
@@ -254,9 +344,9 @@ position = Vector2(0, 255)
 
 [node name="WriteLabel" type="Label" parent="Gameplay/Phone/Message/WriteBox"]
 z_index = 1
-offset_left = -166.0
-offset_top = -66.0
-offset_right = 128.0
+offset_left = -169.0
+offset_top = -71.0
+offset_right = 140.0
 offset_bottom = 38.0
 theme = SubResource("Theme_24380")
 theme_override_colors/font_color = Color(0.675781, 0.808594, 0.996094, 1)
@@ -311,14 +401,15 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_xf8ss")
 flat = true
 
 [node name="SendButtonSprite2D" type="Sprite2D" parent="Gameplay/Phone/Message"]
-position = Vector2(140, 256)
+position = Vector2(149, 248)
+scale = Vector2(0.8, 0.8)
 
 [node name="Hover" parent="Gameplay/Phone/Message/SendButtonSprite2D" instance=ExtResource("19_77wc7")]
 
 [node name="Area2D" type="Area2D" parent="Gameplay/Phone/Message/SendButtonSprite2D/Hover"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Message/SendButtonSprite2D/Hover/Area2D"]
-position = Vector2(10.5, 6)
+position = Vector2(6.25, 6.25)
 shape = SubResource("RectangleShape2D_j8s3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Message/SendButtonSprite2D"]

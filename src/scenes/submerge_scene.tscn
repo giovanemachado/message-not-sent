@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cy5i5q85piqiv"]
+[gd_scene load_steps=53 format=3 uid="uid://cy5i5q85piqiv"]
 
 [ext_resource type="Texture2D" uid="uid://d4mskpemmctm8" path="res://src/art/spike2.png" id="1_2oqxv"]
 [ext_resource type="Texture2D" uid="uid://ew6qiponq6xf" path="res://src/art/spike1.png" id="1_3qwbg"]
@@ -22,6 +22,7 @@
 [ext_resource type="FontFile" uid="uid://dcahcytb1bhbj" path="res://src/art/NicoPups-Regular.ttf" id="19_j5ium"]
 [ext_resource type="PackedScene" uid="uid://du2vt5aupvoe8" path="res://src/hover_scene.tscn" id="19_orky4"]
 [ext_resource type="Texture2D" uid="uid://oexmk613bpr7" path="res://src/art/up.png" id="20_p7xj4"]
+[ext_resource type="AudioStream" uid="uid://blod5ggy4dfs3" path="res://src/Audio Assets/Creature.wav" id="23_arsp5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2gsgs"]
 size = Vector2(450, 1226)
@@ -395,6 +396,68 @@ fog_height_density = -0.035
 adjustment_enabled = true
 adjustment_brightness = 0.87
 adjustment_contrast = 0.83
+
+[sub_resource type="Animation" id="Animation_6ufo2"]
+resource_name = "sad"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Submarine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 3.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-723, -27), Vector2(-723, -48.975)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Submarine:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.6, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0436332, 0.0436332]
+}
+
+[sub_resource type="Animation" id="Animation_ty238"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Submarine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-723, -27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Submarine:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0436332]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yfh5l"]
+_data = {
+"RESET": SubResource("Animation_ty238"),
+"sad": SubResource("Animation_6ufo2")
+}
 
 [node name="Submerge" type="Node2D"]
 script = ExtResource("1_ttr4y")
@@ -895,6 +958,7 @@ all_marks = [null, NodePath("../Gameplay/Mark1"), NodePath("../Gameplay/Mark2"),
 
 [node name="Submarine" type="CharacterBody2D" parent="."]
 position = Vector2(-723, -27)
+rotation = -0.0436332
 script = ExtResource("3_7535w")
 speed = 250.0
 
@@ -924,16 +988,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRectDebug" type="ColorRect" parent="CanvasLayer/Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.415686, 0.415686, 0.415686, 1)
 
 [node name="ColorRectRadar" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -1148,6 +1202,16 @@ autowrap_mode = 2
 environment = SubResource("Environment_u6g6f")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_arsp5")
+volume_db = 6.976
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "sad"
+libraries = {
+"": SubResource("AnimationLibrary_yfh5l")
+}
 
 [connection signal="reached_end" from="Submarine" to="." method="_on_submarine_reached_end"]
 [connection signal="area_entered" from="Submarine/ObstaclesDetector" to="Submarine" method="_on_obstacles_detector_area_entered"]

@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var contacts_screen = $Phone/Contacts
 @onready var message_screen = $Phone/Message
 @onready var animation_player: AnimationPlayer = $Phone/Message/AnimationPlayer
@@ -56,9 +55,18 @@ var erasing_sound = preload("res://src/Audio Assets/UI/Keyboard delete.wav")
 
 @onready var tutorial = $Phone/Tutorial
 
+@onready var notification1 = $Phone/Contacts/Contact1/ContactSprite2D/Sprite2D
+@onready var notification2 = $Phone/Contacts/Contact2/ContactSprite2D/Sprite2D2
+
+var show_notification_1 = true
+var show_notification_2 = true
+
 var abort = false
 
 func _ready():
+	notification1.hide()
+	notification2.hide()
+	
 	contacts_screen.show()
 	message_screen.hide()
 	write_clicked = false
@@ -77,6 +85,12 @@ func _ready():
 	sound_effects.stream = msg_inc_sound
 	sound_effects.play()
 	
+	if current_level != 3:
+		notification1.show()
+	if (current_level == 1 || current_level == 3):
+		notification2.show()
+
+
 func _on_submerge_button_pressed():
 	if !can_dive: return
 	
@@ -158,6 +172,8 @@ func _on_send_button_pressed():
 
 
 func _on_contact_1_button_pressed():
+	notification1.hide()
+	show_notification_1 = false
 	abort = false
 	sound_effects.stream = select_sound
 	sound_effects.play()
@@ -168,6 +184,8 @@ func _on_contact_1_button_pressed():
 
 
 func _on_contact_2_button_pressed():
+	notification2.hide()
+	show_notification_2 = false
 	abort = false
 	sound_effects.stream = select_sound
 	sound_effects.play()
@@ -193,12 +211,16 @@ func _on_contacts_button_pressed():
 
 func update_messages():
 	write_label.text = ''
+	
 	if current_contact == Globals.CHARACTERS.DAUGHTER:
 		show_daughter_messages()
 	else:
 		hide_daughter_messages()
-	
+		
 	if current_contact == Globals.CHARACTERS.BOSS:
+		if (current_level == 1 || current_level == 3) && show_notification_2:
+			notification2.show()
+			
 		if current_level < 3:
 			boss_level_1.show()
 		if current_level >= 3:

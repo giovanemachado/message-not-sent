@@ -23,6 +23,8 @@ extends Node2D
 @onready var tutorial = $CanvasLayer/Control/Tutorial
 @onready var animation_player = $Environment/Obstacles/AreasLevel5/AnimationPlayer
 var current_level = 0
+var sub_destroyed_by_monster = preload("res://src/Audio Assets/Creature.wav")
+@onready var a = $AudioStreamPlayer2
 
 func _ready():
 	current_level = Globals.current_level
@@ -101,7 +103,10 @@ func _on_submarine_reached_end():
 	if Globals.current_level > 5:
 		Globals.current_level = 0
 		animation_player.play("m")
+		a.stream = sub_destroyed_by_monster 
+		a.play()
 		await animation_player.animation_finished
+		await get_tree().create_timer(2).timeout
 		SceneLoader.scene_transition(Globals.SCENES.GAME_OVER)
 	else:
 		SceneLoader.scene_transition(Globals.SCENES.EMERGE)
