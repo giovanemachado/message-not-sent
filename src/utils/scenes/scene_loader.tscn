@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dco5ysp4cwxxp"]
+[gd_scene load_steps=6 format=3 uid="uid://dco5ysp4cwxxp"]
 
 [ext_resource type="Script" path="res://src/utils/scenes/scene_loader.gd" id="1_k51kg"]
+[ext_resource type="AudioStream" uid="uid://cfwcferx0cg2t" path="res://src/Audio Assets/Music/Theme.wav" id="2_rxuvu"]
 
 [sub_resource type="Animation" id="Animation_mr61c"]
 resource_name = "RESET"
@@ -61,4 +62,11 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -8.0
 
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rxuvu")
+volume_db = -8.0
+autoplay = true
+
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
+
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

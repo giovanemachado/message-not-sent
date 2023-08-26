@@ -66,7 +66,7 @@ func _ready():
 	stopped_typing = false
 	can_dive = false
 	current_level = Globals.current_level
-#	commands.hide()
+	commands.hide()
 	
 	if current_level == 1:
 		tutorial.show()
@@ -78,7 +78,7 @@ func _ready():
 	sound_effects.play()
 	
 func _on_submerge_button_pressed():
-#	if !can_dive: return
+	if !can_dive: return
 	
 	SceneLoader.scene_transition(Globals.SCENES.SUBMERGE)
 

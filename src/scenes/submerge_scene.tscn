@@ -1012,7 +1012,6 @@ texture = ExtResource("18_nd4br")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D2/Hover/Area2D"]
 position = Vector2(0.5, -3.2)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ycb2e")
 
 [node name="sup2" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
@@ -1020,19 +1019,22 @@ position = Vector2(411, 48.25)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("16_l0p1h")
 
+[node name="sup" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
+position = Vector2(52, 48.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("16_l0p1h")
+
 [node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
-position = Vector2(412, 16)
+position = Vector2(52, 19)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_js64i")
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D6"]
 position = Vector2(-0.100006, -6.60001)
-scale = Vector2(1, 1)
 texture = ExtResource("20_p7xj4")
 
 [node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D6"]
 position = Vector2(-0.100006, -2.5)
-scale = Vector2(1, 1)
 texture = ExtResource("20_p7xj4")
 
 [node name="Hover" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D6" instance=ExtResource("19_orky4")]
@@ -1041,16 +1043,10 @@ texture = ExtResource("20_p7xj4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D6/Hover/Area2D"]
 position = Vector2(0.399994, -4.39999)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3o7b0")
 
-[node name="sup" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
-position = Vector2(52, 48.25)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("16_l0p1h")
-
 [node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/Control/ColorRectCommands"]
-position = Vector2(52, 18)
+position = Vector2(409, 17)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("17_js64i")
 
@@ -1070,7 +1066,6 @@ texture = ExtResource("20_p7xj4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Control/ColorRectCommands/Sprite2D4/Hover/Area2D"]
 position = Vector2(0.199997, -3)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tdlho")
 
 [node name="UpButton" type="Button" parent="CanvasLayer/Control/ColorRectCommands"]

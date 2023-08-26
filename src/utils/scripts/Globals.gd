@@ -22,7 +22,7 @@ const GROUPS = {
 
 # first 1
 # last 5
-var current_level: int = 5
+var current_level: int = 1
 
 #enum ExampleEnum {A, B}
 #

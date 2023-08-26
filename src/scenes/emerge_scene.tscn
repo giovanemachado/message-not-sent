@@ -178,7 +178,6 @@ texture = ExtResource("8_jcgp2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Contacts/Contact1/ContactSprite2D/Hover/Area2D"]
 position = Vector2(0.599983, -0.200001)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_k543w")
 
 [node name="Contact1Button" type="Button" parent="Gameplay/Phone/Contacts/Contact1"]
@@ -215,7 +214,6 @@ texture = ExtResource("9_25yjq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Contacts/Contact2/ContactSprite2D/Hover/Area2D"]
 position = Vector2(-0.300011, -0.199997)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mwocy")
 
 [node name="Contact2Button" type="Button" parent="Gameplay/Phone/Contacts/Contact2"]
@@ -255,6 +253,7 @@ libraries = {
 position = Vector2(0, 255)
 
 [node name="WriteLabel" type="Label" parent="Gameplay/Phone/Message/WriteBox"]
+z_index = 1
 offset_left = -166.0
 offset_top = -66.0
 offset_right = 128.0
@@ -298,7 +297,6 @@ frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Message/WriteBox/Sprite2D4/Hover/Area2D"]
 position = Vector2(-4.5, -3.6)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fwown")
 
 [node name="SendButton" type="Button" parent="Gameplay/Phone/Message"]
@@ -1756,7 +1754,6 @@ texture = ExtResource("18_1jxyo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Phone/Message/ContactsButton2/Hover/Area2D"]
 position = Vector2(0.799995, -0.799999)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_o6lpe")
 
 [node name="Tutorial" type="Node2D" parent="Gameplay/Phone"]
@@ -1830,7 +1827,6 @@ texture = ExtResource("22_g5aok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Commands/SubmergeButtonSprite2D/Hover/Area2D"]
 position = Vector2(0.199997, -2.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2kdh8")
 
 [node name="SubmergeButton" type="Button" parent="Gameplay/Commands"]
