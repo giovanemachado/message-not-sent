@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ci7bq8dim3vtv"]
+[gd_scene load_steps=30 format=3 uid="uid://ci7bq8dim3vtv"]
 
 [ext_resource type="Texture2D" uid="uid://cwnoomfrd8au8" path="res://src/art/clouds.png" id="1_eq0ir"]
 [ext_resource type="Script" path="res://src/emerge/effects/ParallaxBackground.gd" id="1_nsmkd"]
@@ -19,16 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://ttf3rmk21m2u" path="res://src/art/button.png" id="17_c51jx"]
 [ext_resource type="Texture2D" uid="uid://dtyjk8a4obthv" path="res://src/art/support.png" id="17_u46ey"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2kgt"]
-bg_color = Color(1, 1, 1, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpjjm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21vy4"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwgfh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cokg"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fx3n7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yygrr"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Animation" id="Animation_6jww7"]
@@ -70,13 +65,12 @@ _data = {
 
 [sub_resource type="Theme" id="Theme_24380"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4vkp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf8ss"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5annu"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brbpd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jub7g"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gd0wn"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3va06"]
@@ -161,7 +155,9 @@ offset_left = -175.0
 offset_top = 115.0
 offset_right = 178.0
 offset_bottom = 201.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_r2kgt")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dpjjm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rwgfh")
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Gameplay/Phone/Contacts/Contact1"]
@@ -186,7 +182,9 @@ texture = ExtResource("9_25yjq")
 offset_left = -176.0
 offset_right = 177.0
 offset_bottom = 82.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_21vy4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dpjjm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rwgfh")
+flat = true
 
 [node name="Label3" type="Label" parent="Gameplay/Phone/Contacts/Contact2"]
 offset_left = -81.0
@@ -205,8 +203,8 @@ offset_left = -170.0
 offset_top = 165.0
 offset_right = 114.0
 offset_bottom = 289.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
-theme_override_styles/hover = SubResource("StyleBoxFlat_fx3n7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yygrr")
+flat = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Gameplay/Phone/Message"]
 libraries = {
@@ -260,9 +258,9 @@ offset_bottom = 303.0
 theme_override_colors/font_color = Color(0.675781, 0.808594, 0.996094, 1)
 theme_override_fonts/font = ExtResource("8_2dcbm")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e4vkp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xf8ss")
 text = ">>"
+flat = true
 
 [node name="DaughterLevel1" type="Node2D" parent="Gameplay/Phone/Message"]
 visible = false
@@ -1419,7 +1417,7 @@ offset_bottom = 97.8
 theme_override_colors/font_color = Color(0.678431, 0.811765, 1, 1)
 theme_override_fonts/font = ExtResource("10_xuu8d")
 theme_override_font_sizes/font_size = 24
-text = "ERROR MESSAGE NOT SENT: 500"
+text = "ERROR 500: MESSAGE NOT SENT"
 autowrap_mode = 2
 
 [node name="ChatBoxWhite3" type="Node2D" parent="Gameplay/Phone/Message/DaughterLevel5_Sent"]
@@ -1672,9 +1670,10 @@ offset_bottom = -212.0
 theme_override_colors/font_color = Color(0.675781, 0.808594, 0.996094, 1)
 theme_override_fonts/font = ExtResource("8_2dcbm")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
-theme_override_styles/hover = SubResource("StyleBoxFlat_e4vkp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_brbpd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gd0wn")
 text = "<"
+flat = true
 
 [node name="Tutorial" type="Node2D" parent="Gameplay/Phone"]
 position = Vector2(350, -281)
@@ -1719,7 +1718,6 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Commands" type="Node2D" parent="Gameplay"]
-visible = false
 position = Vector2(1082, 586)
 
 [node name="SubmergeButtonSprite2D2" type="Sprite2D" parent="Gameplay/Commands"]
@@ -1737,10 +1735,8 @@ offset_left = -125.0
 offset_top = -139.0
 offset_right = 48.0
 offset_bottom = -23.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0cokg")
-theme_override_styles/hover = SubResource("StyleBoxFlat_5annu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jub7g")
 theme_override_styles/focus = SubResource("StyleBoxFlat_3va06")
+flat = true
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lrpum10u6qlg"
+path="res://.godot/imported/Keyboard delete.wav-ce3abe1b5529644d0fb8e8307ea8aad7.sample"
+
+[deps]
+
+source_file="res://src/Audio Assets/UI/Keyboard delete.wav"
+dest_files=["res://.godot/imported/Keyboard delete.wav-ce3abe1b5529644d0fb8e8307ea8aad7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

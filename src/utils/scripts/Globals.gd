@@ -16,12 +16,13 @@ const CHARACTERS = {
 }
 
 const GROUPS = {
-	OBSTACLES = 'obstacle'
+	OBSTACLES = 'obstacle',
+	MINES = 'mine'
 }
 
 # first 1
 # last 5
-var current_level: int = 1
+var current_level: int = 5
 
 #enum ExampleEnum {A, B}
 #

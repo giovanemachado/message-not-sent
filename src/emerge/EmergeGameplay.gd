@@ -31,6 +31,7 @@ var select_sound = preload("res://src/Audio Assets/UI/Phone/Select.wav")
 
 var type1_sound = preload("res://src/Audio Assets/UI/Phone/Click Keyboard High.wav")
 var type2_sound = preload("res://src/Audio Assets/UI/Phone/Click Keyboard Low.wav")
+var erasing_sound = preload("res://src/Audio Assets/UI/Keyboard delete.wav")
 
 @onready var daughter_level_1 = $Phone/Message/DaughterLevel1
 @onready var daughter_level_1_sent = $Phone/Message/DaughterLevel1_Sent
@@ -55,6 +56,8 @@ var type2_sound = preload("res://src/Audio Assets/UI/Phone/Click Keyboard Low.wa
 
 @onready var tutorial = $Phone/Tutorial
 
+var abort = false
+
 func _ready():
 	contacts_screen.show()
 	message_screen.hide()
@@ -63,7 +66,7 @@ func _ready():
 	stopped_typing = false
 	can_dive = false
 	current_level = Globals.current_level
-	commands.hide()
+#	commands.hide()
 	
 	if current_level == 1:
 		tutorial.show()
@@ -75,7 +78,7 @@ func _ready():
 	sound_effects.play()
 	
 func _on_submerge_button_pressed():
-	if !can_dive: return
+#	if !can_dive: return
 	
 	SceneLoader.scene_transition(Globals.SCENES.SUBMERGE)
 
@@ -125,10 +128,12 @@ func write_message_then_erase(message1, message2):
 	await animation_player.animation_finished
 	stopped_typing = true
 	await get_tree().create_timer(2).timeout
-	stopped_typing = false
+	play_erasing()
 	animation_player.play_backwards(ANIMATIONS.TYPE)
 	
 	await animation_player.animation_finished
+	
+	stopped_typing = false
 	play_typing()
 	write_label.text = message2
 	
@@ -153,6 +158,7 @@ func _on_send_button_pressed():
 
 
 func _on_contact_1_button_pressed():
+	abort = false
 	sound_effects.stream = select_sound
 	sound_effects.play()
 	contacts_screen.hide()
@@ -162,6 +168,7 @@ func _on_contact_1_button_pressed():
 
 
 func _on_contact_2_button_pressed():
+	abort = false
 	sound_effects.stream = select_sound
 	sound_effects.play()
 	contacts_screen.hide()
@@ -171,6 +178,13 @@ func _on_contact_2_button_pressed():
 
 
 func _on_contacts_button_pressed():
+	abort = true
+	if !message_sent:
+		write_label.text = ""
+		write_clicked = false
+		write_done = false
+		stopped_typing = false
+
 	sound_effects.stream = menu_click_sound
 	sound_effects.play()
 	contacts_screen.show()
@@ -249,6 +263,7 @@ func hide_daughter_messages():
 	daughter_level_5_sent.hide()
 
 func play_typing():
+	if abort: return
 	if write_done: return
 	if stopped_typing: return
 	var sounds = [type1_sound, type2_sound]
@@ -258,6 +273,7 @@ func play_typing():
 	play_typing2()
 	
 func play_typing2():
+	if abort: return
 	if write_done: return
 	if stopped_typing: return
 	var sounds = [type1_sound, type2_sound]
@@ -265,3 +281,21 @@ func play_typing2():
 	sound_effects.play()
 	await sound_effects.finished
 	play_typing()
+
+func play_erasing():
+	if abort: return
+	if write_done: return
+	if !stopped_typing: return
+	sound_effects.stream = erasing_sound
+	sound_effects.play()
+	await sound_effects.finished
+	play_erasing2()
+	
+func play_erasing2():
+	if abort: return
+	if write_done: return
+	if !stopped_typing: return
+	sound_effects.stream = erasing_sound
+	sound_effects.play()
+	await sound_effects.finished
+	play_erasing()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://deks2npc2lwx1"]
+[gd_scene load_steps=3 format=3 uid="uid://deks2npc2lwx1"]
 
 [ext_resource type="Script" path="res://src/scenes/GameOver.gd" id="1_lgj8d"]
+[ext_resource type="FontFile" uid="uid://dcahcytb1bhbj" path="res://src/art/NicoPups-Regular.ttf" id="2_5kcm5"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_lgj8d")
@@ -13,28 +14,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.227451, 0.227451, 0.227451, 1)
+color = Color(0.0980392, 0.184314, 0.278431, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -30.5
-offset_right = 46.0
-offset_bottom = 30.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "This is the end. Thanks for playing."
-
-[node name="PlayAgain" type="Button" parent="CanvasLayer/ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "replay"
-
-[connection signal="pressed" from="CanvasLayer/ColorRect/VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 269.0
+offset_right = 762.0
+offset_bottom = 296.0
+theme_override_fonts/font = ExtResource("2_5kcm5")
+theme_override_font_sizes/font_size = 24
+text = "that's the end. Thanks for playing"

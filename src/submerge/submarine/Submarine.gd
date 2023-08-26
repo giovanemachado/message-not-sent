@@ -9,7 +9,12 @@ signal reached_end
 @onready var obs_detect = $ObstaclesDetector
 
 @onready var canvas = $"../CanvasLayer"
+@onready var stream_player = $"../AudioStreamPlayer"
+var sub_motor_sound1 = preload("res://src/Audio Assets/Sub_/Sub Engine Idle.wav")
+var sub_motor_sound2 = preload("res://src/Audio Assets/Sub_/Sub Engine Loaded.wav")
+var sub_motor_sound3 = preload("res://src/Audio Assets/Sub_/Sub Engine Mid.wav")
 
+var tween: Tween
 var next_target: Vector2
 var length: float = 0
 var is_moving = false
@@ -20,6 +25,7 @@ var is_first_mark = true
 func _ready(): 
 	has_reached_end = false
 	canvas.hide()
+	play_mid_motor()
 
 func _physics_process(delta):
 	if has_reached_end: return
@@ -37,6 +43,7 @@ func _physics_process(delta):
 			
 		velocity = Vector2.ZERO
 		is_moving = false
+		play_idle_motor()
 		
 		if commands.current_distance >= 3:
 			reached_end.emit()
@@ -48,8 +55,25 @@ func _physics_process(delta):
 		velocity = direction * speed
 		is_moving = true
 		move_and_slide()
+		play_load_motor()
 
+func play_idle_motor():
+	if stream_player.stream != sub_motor_sound1:
+		stream_player.stream = sub_motor_sound1
+		stream_player.play()
+	
+func play_mid_motor():
+	if stream_player.stream != sub_motor_sound3:
+		stream_player.stream = sub_motor_sound3
+		stream_player.play()
+		
+func play_load_motor():
+	if stream_player.stream != sub_motor_sound2:
+		stream_player.stream = sub_motor_sound2
+		stream_player.play()
 
 func _on_obstacles_detector_area_entered(area):
 	if area.is_in_group(Globals.GROUPS.OBSTACLES):
-		SceneLoader.scene_transition(Globals.SCENES.DEATH)
+		SceneLoader.destroyed_by_obstacle()
+	if area.is_in_group(Globals.GROUPS.MINES):
+		SceneLoader.destroyed_by_mine()

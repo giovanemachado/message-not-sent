@@ -6,11 +6,16 @@ extends CanvasLayer
 @onready var sound_effects: AudioStreamPlayer = $SoundEffects
 
 var ambience_main_menu = preload("res://src/Audio Assets/Ambient/Main Menu Ambience.wav")
+var ambience_submerge = preload("res://src/Audio Assets/Ambient/Underwater ambience.wav")
+
 var emerge_sound = preload("res://src/Audio Assets/UI/Emerging Button.wav")
 var submerge_sound = preload("res://src/Audio Assets/UI/Submerge Button.wav")
 
 var subm_destroyed_sound = preload("res://src/Audio Assets/Sub_/SUB  DESTROYED V1.wav")
 var subm_destroyed1_sound = preload("res://src/Audio Assets/Sub_/SUB DESTROYED V2.wav")
+var subm_destroyed_by_bomb_sound = preload("res://src/Audio Assets/Sub_/Sub Explode 1.wav")
+var subm_destroyed_by_bomb_sound2 = preload("res://src/Audio Assets/Sub_/Sub Explode 2.wav")
+
 
 var sub_screeching1_sound = preload("res://src/Audio Assets/Sub_/Screeches/Sub screeching 1 .wav")
 var sub_screeching2_sound = preload("res://src/Audio Assets/Sub_/Screeches/Sub screeching 2.wav")
@@ -18,10 +23,17 @@ var sub_screeching3_sound = preload("res://src/Audio Assets/Sub_/Screeches/Sub s
 var sub_screeching4_sound = preload("res://src/Audio Assets/Sub_/Screeches/Sub screeching 4.wav")
 var sub_screeching5_sound = preload("res://src/Audio Assets/Sub_/Screeches/Sub screeching 5.wav")
 
+var arrow = preload("res://src/art/mouse1.png")
+#var beam = preload("res://beam.png")
+
 var default_scene_path = "res://src/scenes/"
 var is_submerge_scene = false
+var destroyed_by_bomb = false
 
 var tween: Tween
+
+func _ready():
+	Input.set_custom_mouse_cursor(arrow)
 	
 func scene_transition(target: String):
 	animation_player.play("dissolve")
@@ -54,18 +66,22 @@ func scene_transition(target: String):
 		sound_effects.stream = submerge_sound
 		sound_effects.play()
 		
-#		audio_stream_player.stream = ambience_main_menu
-#		audio_stream_player.play()
-#
-#		tween.tween_property(audio_stream_player, "volume_db", -8, 0.5)
-		
+		audio_stream_player.stream = ambience_submerge
+		audio_stream_player.play()
+
 		await get_tree().create_timer(4).timeout
 		is_submerge_scene = true
 		scr_s()
 		animation_player.play_backwards("dissolve")
 		
 	elif target == Globals.SCENES.DEATH:
-		var sounds = [subm_destroyed1_sound, subm_destroyed_sound]
+		var sounds = []
+		
+		if !destroyed_by_bomb:
+			sounds = [subm_destroyed1_sound, subm_destroyed_sound]
+		else:
+			sounds = [subm_destroyed_by_bomb_sound, subm_destroyed_by_bomb_sound2]
+			
 		sound_effects.stream = sounds.pick_random()
 		sound_effects.play()
 		await get_tree().create_timer(2).timeout
@@ -73,6 +89,14 @@ func scene_transition(target: String):
 	else:
 		animation_player.play_backwards("dissolve")
 
+
+func destroyed_by_obstacle():
+	destroyed_by_bomb = false
+	scene_transition(Globals.SCENES.DEATH)
+	
+func destroyed_by_mine():
+	destroyed_by_bomb = true
+	scene_transition(Globals.SCENES.DEATH)
 
 func scr_s():
 	if !is_submerge_scene: return

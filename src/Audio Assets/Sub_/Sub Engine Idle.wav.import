@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bv5oy3mjbhk58"
+path="res://.godot/imported/Sub Engine Idle.wav-b9120fa7879e8caf9cad4b0fb234c36f.sample"
+
+[deps]
+
+source_file="res://src/Audio Assets/Sub_/Sub Engine Idle.wav"
+dest_files=["res://.godot/imported/Sub Engine Idle.wav-b9120fa7879e8caf9cad4b0fb234c36f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
