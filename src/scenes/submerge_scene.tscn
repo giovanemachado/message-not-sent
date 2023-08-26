@@ -1205,7 +1205,7 @@ environment = SubResource("Environment_u6g6f")
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_arsp5")
-volume_db = 6.976
+volume_db = 8.878
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "sad"

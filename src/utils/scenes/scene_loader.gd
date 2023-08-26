@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var sound_effects: AudioStreamPlayer = $SoundEffects
 
-var music_loop = preload("res://src/Audio Assets/Music/Theme no fade.wav")
+var music_loop = preload("res://src/Audio Assets/Music/Theme loop.wav")
 
 var ambience_main_menu = preload("res://src/Audio Assets/Ambient/Main Menu Ambience.wav")
 var ambience_submerge = preload("res://src/Audio Assets/Ambient/Underwater ambience.wav")
