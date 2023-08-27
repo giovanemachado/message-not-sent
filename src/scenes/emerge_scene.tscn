@@ -26,6 +26,33 @@
 [ext_resource type="PackedScene" uid="uid://du2vt5aupvoe8" path="res://src/hover_scene.tscn" id="19_77wc7"]
 [ext_resource type="Texture2D" uid="uid://oexmk613bpr7" path="res://src/art/up.png" id="22_g5aok"]
 
+[sub_resource type="Animation" id="Animation_dda04"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(89, 589)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_r8qbv"]
 resource_name = "d"
 length = 3.0
@@ -53,33 +80,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 0]
-}
-
-[sub_resource type="Animation" id="Animation_dda04"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(89, 589)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2/Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rsc4f"]
@@ -254,7 +254,6 @@ texture = ExtResource("8_jcgp2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/Phone/Contacts/Contact1/ContactSprite2D"]
 position = Vector2(33.2, -7.2)
-scale = Vector2(1, 1)
 texture = ExtResource("12_vk6bj")
 
 [node name="Hover" parent="Gameplay/Phone/Contacts/Contact1/ContactSprite2D" instance=ExtResource("19_77wc7")]
@@ -295,7 +294,6 @@ texture = ExtResource("9_25yjq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Gameplay/Phone/Contacts/Contact2/ContactSprite2D"]
 position = Vector2(33.2, -6.5)
-scale = Vector2(1, 1)
 texture = ExtResource("12_vk6bj")
 
 [node name="Hover" parent="Gameplay/Phone/Contacts/Contact2/ContactSprite2D" instance=ExtResource("19_77wc7")]

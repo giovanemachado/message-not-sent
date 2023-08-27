@@ -397,6 +397,33 @@ adjustment_enabled = true
 adjustment_brightness = 0.87
 adjustment_contrast = 0.83
 
+[sub_resource type="Animation" id="Animation_ty238"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Submarine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-723, -27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Submarine:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0436332]
+}
+
 [sub_resource type="Animation" id="Animation_6ufo2"]
 resource_name = "sad"
 length = 5.0
@@ -424,33 +451,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-0.0436332, 0.0436332]
-}
-
-[sub_resource type="Animation" id="Animation_ty238"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Submarine:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-723, -27)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Submarine:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.0436332]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yfh5l"]
@@ -756,7 +756,7 @@ texture = ExtResource("1_2oqxv")
 
 [node name="Bomb" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["mine"]]
 position = Vector2(1352, -604)
-collision_layer = 4
+collision_layer = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel4/Bomb"]
 scale = Vector2(2.5, -2.5)
@@ -767,7 +767,7 @@ shape = SubResource("CircleShape2D_7ktqi")
 
 [node name="Bomb2" type="Area2D" parent="Environment/Obstacles/AreasLevel4" groups=["mine"]]
 position = Vector2(2394.5, 417.5)
-collision_layer = 4
+collision_layer = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Obstacles/AreasLevel4/Bomb2"]
 scale = Vector2(2.5, -2.5)

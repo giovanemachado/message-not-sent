@@ -74,6 +74,8 @@ func play_load_motor():
 
 func _on_obstacles_detector_area_entered(area):
 	if area.is_in_group(Globals.GROUPS.OBSTACLES):
+		print(area)
 		SceneLoader.destroyed_by_obstacle()
 	if area.is_in_group(Globals.GROUPS.MINES):
+		print(area)
 		SceneLoader.destroyed_by_mine()
